@@ -4,20 +4,40 @@ from File import File
 
 
 def test_nouvelle_file():
-    pass
+    f = File()
+    f.nouvelle_file()
+    assert f.file == []
 
 
 def test_enfiler():
-    pass
+    f = File()
+    f.nouvelle_file()
+    f.enfiler(5)
+    assert f.file == [5]
+    f.enfiler(1)
+    assert f.file == [5,1]
 
 
 def test_defiler():
-    pass
+    f = File()
+    f.nouvelle_file()
+    assert f.defiler() == None
+    assert f.file == []
+    f.enfiler(5)
+    f.enfiler(1)
+    assert f.defiler() == 5
+    assert f.file == [1]
+    assert f.defiler() == 1
+    assert f.file == []
 
 
 def test_file_vide():
-    pass
-
-
-def test_test_file():
-    pass
+    f = File()
+    f.nouvelle_file()
+    assert f.file_vide() == True
+    f.enfiler(5)
+    f.enfiler(1)
+    f.defiler()
+    assert f.file_vide() == False
+    f.defiler()
+    assert f.file_vide() == True
