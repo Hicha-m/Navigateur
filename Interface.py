@@ -1,3 +1,7 @@
 class Interface:
-  def __init__(self):
+    def __init__(self):
+        pass
+
+
+if __name__ == "__main__":
     pass

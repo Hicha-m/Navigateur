@@ -2,17 +2,22 @@
 
 from File import File
 
+
 def test_nouvelle_file():
-  pass
-  
+    pass
+
+
 def test_enfiler():
-  pass
+    pass
+
 
 def test_defiler():
-  pass
-  
+    pass
+
+
 def test_file_vide():
-  pass
+    pass
+
 
 def test_test_file():
-  pass
+    pass
