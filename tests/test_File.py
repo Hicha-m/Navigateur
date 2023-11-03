@@ -1,6 +1,6 @@
 """"ce programme contient les tests des méthodes contenus dans le fichier "File.py""" ""
 
-from File import File
+from src.File import File
 
 
 def test_nouvelle_file():

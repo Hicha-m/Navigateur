@@ -34,6 +34,10 @@ class Graphe:
         """methode de test qui crée un graphe aléatoire et l’affiche sur l’écran"""
         pass
 
+    def lire_graphe(self, nom_fichier):
+        """méthode qui renvoie un graphe construit à partir de la matrice d’adjacence"""
+        pass
+
 
 if __name__ == "__main__":
     pass

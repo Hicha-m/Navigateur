@@ -1,6 +1,6 @@
 """"ce programme contient les tests des méthodes contenus dans le fichier "Graphe.py""" ""
 
-from Graphe import Graphe
+from src.Graphe import Graphe
 
 
 def test_instance():

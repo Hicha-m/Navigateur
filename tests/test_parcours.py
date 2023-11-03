@@ -1,6 +1,6 @@
 """"ce programme contient les tests des fonctions contenus dans le fichier "parcours.py""" ""
 
-from parcours import (
+from src.parcours import (
     parcours_en_largeur,
     test_parcours_en_largeur,
     trouver_chemin,

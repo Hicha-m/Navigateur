@@ -1,5 +1,5 @@
-from Graphe import Graphe
-from File import File
+from src.Graphe import Graphe
+from src.File import File
 
 
 def parcours_en_largeur(G, s):
