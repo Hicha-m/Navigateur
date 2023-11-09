@@ -28,7 +28,14 @@ class Graphe:
 
     def afficher_graphe(self):
         """methode qui affiche la matrice d’adjacence du graphe G sur l’écran"""
-        pass
+        line = "-" + "-" * 4 * self.longueur + "\n"
+        s = line
+        for l in self.tableau:
+            s += "| "
+            for x in l:
+                s += str(x) + " | "
+            s += "\n" + line
+        return s
 
     def test_graphe(self):
         """methode de test qui crée un graphe aléatoire et l’affiche sur l’écran"""
