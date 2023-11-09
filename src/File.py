@@ -6,7 +6,8 @@ class File:
         self.file = []
 
     def enfiler(self, x):
-        return self.file.append(x)
+        self.file.append(x)
+        return x
 
     def defiler(self):
         return self.file.pop()
@@ -15,10 +16,10 @@ class File:
         return self.file == []
 
     def test_file(self, x):
-        self.nouvelle_file(self, f)
-        self.enfiler(self, f, x)
-        self.defiler(self, f)
-        self.file_vide(self, f)
+        self.nouvelle_file(self)
+        self.enfiler(self, x)
+        self.defiler(self)
+        self.file_vide(self)
 
 
 if __name__ == "__main__":
@@ -27,8 +28,8 @@ if __name__ == "__main__":
     f = File()
 
     f.nouvelle_file()
+    f.enfiler(1)
+    print(f.file_vide())
+    print(f.file)
 
-    for i in range(len(a)):
-        a.enfiler(f, i)
-
-    print(f)
+ 
