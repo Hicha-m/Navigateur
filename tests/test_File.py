@@ -1,6 +1,6 @@
 """"ce programme contient les tests des méthodes contenus dans le fichier "File.py""" ""
 
-from src.File import File
+from classes.File import File
 
 
 def test_nouvelle_file():
@@ -15,7 +15,7 @@ def test_enfiler():
     f.enfiler(5)
     assert f.file == [5]
     f.enfiler(1)
-    assert f.file == [5,1]
+    assert f.file == [5, 1]
 
 
 def test_defiler():

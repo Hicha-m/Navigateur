@@ -10,7 +10,8 @@ class File:
         return x
 
     def defiler(self):
-        return self.file.pop()
+        if not self.file_vide():
+            return self.file.pop()
 
     def file_vide(self):
         return self.file == []

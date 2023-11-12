@@ -1,6 +1,6 @@
 """"ce programme contient les tests des méthodes contenus dans le fichier "Interface.py""" ""
 
-from src.Interface import Interface
+from classes.Interface import Interface
 
 
 def test_():
