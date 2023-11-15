@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Map</title>
+</head>
+<body>
+    <iframe id="mapFrame" src="/my_map" width="100%" height="600" frameborder="0"></iframe>
+    
+    <label for="latitudeInput">New Latitude:</label>
+    <input type="number" id="latitudeInput" step="any">
+    
+    <label for="longitudeInput">New Longitude:</label>
+    <input type="number" id="longitudeInput" step="any">
+    
+    <button onclick="changeMarkerPosition()">Change Marker Position</button>
+
+    <script>
+        function changeMarkerPosition() {
+            // Get the new latitude and longitude values from input fields
+            var newLatitude = document.getElementById("latitudeInput").value;
+            var newLongitude = document.getElementById("longitudeInput").value;
+
+            // Send a POST request to update the marker position
+            fetch('/update_location', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'latitude=' + newLatitude + '&longitude=' + newLongitude,
+            })
+                .then(response => response.text())
+                .then(() => {
+                    // Reload the iframe to update the map
+                    document.getElementById('mapFrame').contentWindow.location.reload(true);
+                });
+        }
+    </script>
+</body>
+</html>
