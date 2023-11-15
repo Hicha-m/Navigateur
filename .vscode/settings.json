@@ -1,7 +1,20 @@
 {
   "python.testing.pytestArgs": [
-    "tests"
+    "navigateur/tests"
   ],
   "python.testing.unittestEnabled": false,
-  "python.testing.pytestEnabled": true
+  "python.testing.pytestEnabled": true,
+  "python.autoComplete.extraPaths": [
+    "${workspaceFolder}"
+  ],
+  "python.analysis.extraPaths": [
+    "${workspaceFolder}"
+  ],
+"terminal.integrated.env.windows": {
+    "PYTHONPATH": "${workspaceFolder}/"
+},
+"terminal.integrated.env.linux": {
+    "PYTHONPATH": "${workspaceFolder}/"
+},
+"python.envFile": "${workspaceFolder}/.env"
 }

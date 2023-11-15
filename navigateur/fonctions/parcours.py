@@ -1,5 +1,6 @@
-from classes.Graphe import Graphe
-from classes.File import File
+from navigateur.classes.MatriceAdjacence import MatriceAdjacence
+from navigateur.classes.File import File
+
 
 def parcours_en_largeur(G, s):
     """Cette fonction renvoie un graphe H qui contient les sommets de G
@@ -8,7 +9,7 @@ def parcours_en_largeur(G, s):
     couleur = [-1] * n
     for i in range(n - 1):
         couleur[i] = "blanc"
-    H = Graphe(n)
+    H = MatriceAdjacence(n)
     H.nouveau_graphe()
     F = File()
     couleur[s] = "rouge"
@@ -37,6 +38,6 @@ def test_trouver_chemin():
 
 
 if __name__ == "__main__":
-    g = Graphe(2)
+    g = MatriceAdjacence(2)
     g.nouveau_graphe()
     print(g)

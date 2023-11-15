@@ -1,4 +1,5 @@
 import csv
+from unidecode import unidecode
 
 
 def formatter_temps_trains():
@@ -16,8 +17,8 @@ def formatter_temps_trains():
                 continue
 
             villes = str(row["relations"]).split(" - ")
-            ville_debut = villes[0]
-            ville_fin = villes[1]
+            ville_debut = normalize_text(villes[0])
+            ville_fin = normalize_text(villes[1])
             temps = int(float(row["temps_estime_en_minutes"]))
 
             trajets.append([ville_debut, ville_fin, temps])
@@ -32,7 +33,7 @@ def formatter_villes_France():
         reader = csv.DictReader(csvfile)
 
         for row in reader:
-            ville = str(row["city"])
+            ville = normalize_text(row["city"])
             latitude = float(row["lat"])
             longitude = float(row["lng"])
 
@@ -41,10 +42,14 @@ def formatter_villes_France():
     save(villes, "data/villes.csv", "ville;latitude;longitude")
 
 
+def normalize_text(text):
+    return unidecode(text.lower())
+
+
 def save(liste, dir, csv, sep=";"):
     n = len(csv.split(sep))
 
-    with open(dir, "w") as file:
+    with open(dir, "w", encoding="utf-8") as file:
         file.write(f"{csv}\n")
         for elm in liste:
             for sub in range(n - 1):

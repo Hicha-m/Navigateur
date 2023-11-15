@@ -1,9 +1,9 @@
 """"ce programme contient les tests des fonctions contenus dans le fichier "parcours.py""" ""
 
-from classes.Graphe import Graphe
+from navigateur.classes.Graphe import Graphe
 
 
-from fonctions.parcours import parcours_en_largeur, trouver_chemin
+from navigateur.fonctions.parcours import parcours_en_largeur, trouver_chemin
 
 
 def test_parcours_en_largeur():

@@ -1,6 +1,6 @@
 """"ce programme contient les tests des méthodes contenus dans le fichier "File.py""" ""
 
-from classes.File import File
+from navigateur.classes.File import File
 
 
 def test_nouvelle_file():
