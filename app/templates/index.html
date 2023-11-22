@@ -1,41 +1,113 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Map</title>
-</head>
-<body>
-    <iframe id="mapFrame" src="/my_map" width="100%" height="600" frameborder="0"></iframe>
-    
-    <label for="latitudeInput">New Latitude:</label>
-    <input type="number" id="latitudeInput" step="any">
-    
-    <label for="longitudeInput">New Longitude:</label>
-    <input type="number" id="longitudeInput" step="any">
-    
-    <button onclick="changeMarkerPosition()">Change Marker Position</button>
+<html>
+  <head>
+    <title>Map Update</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.1/socket.io.js"></script>
+
+    <!-- Inclure ici la bibliothèque JavaScript de la carte (par exemple, Leaflet) -->
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Affichage de la carte -->
+    <div id="map"></div>
 
     <script>
-        function changeMarkerPosition() {
-            // Get the new latitude and longitude values from input fields
-            var newLatitude = document.getElementById("latitudeInput").value;
-            var newLongitude = document.getElementById("longitudeInput").value;
+      var map = L.map("map").setView([46.6031, 1.8883], 6);
+      console.log("La carte a été créée avec succès.");
+      // Ajoutez une couche de carte (par exemple, OpenStreetMap)
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "© OpenStreetMap contributors",
+      }).addTo(map);
 
-            // Send a POST request to update the marker position
-            fetch('/update_location', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: 'latitude=' + newLatitude + '&longitude=' + newLongitude,
-            })
-                .then(response => response.text())
-                .then(() => {
-                    // Reload the iframe to update the map
-                    document.getElementById('mapFrame').contentWindow.location.reload(true);
-                });
-        }
+      // Fonction pour mettre à jour la carte avec les nouvelles données
+      function updateMap(data) {
+        // Effacer toutes les couches existantes
+        map.eachLayer(function (layer) {
+          if (layer instanceof L.Marker || layer instanceof L.Polyline) {
+            map.removeLayer(layer);
+          }
+        });
+
+        // Ajouter des marqueurs pour chaque ville
+        data.cities.forEach(function (cityData) {
+          var cityId = cityData[0];
+          var cityName = cityData[1];
+          var cityLatitude = cityData[2];
+          var cityLongitude = cityData[3];
+
+          // Choisir la couleur du marqueur en fonction de la ville
+          var markerColor = "blue"; // Vous pouvez personnaliser cela selon vos besoins
+          var markerIcon = new L.Icon({
+            iconUrl:
+              "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-" +
+              markerColor +
+              ".png",
+            shadowUrl:
+              "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [1, -34],
+            shadowSize: [41, 41],
+          });
+
+          L.marker([cityLatitude, cityLongitude], {
+            icon: markerIcon,
+          })
+            .addTo(map)
+            .bindPopup(cityName + " (ID: " + cityId + ")");
+        });
+
+        // Ajouter des connexions entre les villes
+        data.connections.forEach(function (connectionData) {
+          var city1Id = connectionData[0];
+          var city2Id = connectionData[1];
+          var time = connectionData[2];
+
+          var city1 = data.cities.find((c) => c[0] === city1Id);
+          var city2 = data.cities.find((c) => c[0] === city2Id);
+
+          if (city1 && city2) {
+            var polyline = L.polyline(
+              [
+                [city1[2], city1[3]],
+                [city2[2], city2[3]],
+              ],
+              { color: "blue", weight: 2 }
+            ).addTo(map);
+            // Ajouter un popup avec le temps sur la polyline
+            polyline.bindPopup("Temps de trajet : " + time + " minutes");
+          }
+        });
+      }
+
+      var socket = io.connect(
+        "http://" + document.domain + ":" + location.port
+      );
+
+      // Écoute des mises à jour de la carte
+      socket.on("map_updated", function (data) {
+        // Mettez à jour la carte avec les nouvelles données
+        // Implémentez cette fonction en fonction de votre bibliothèque de cartes
+        console.log(data);
+        updateMap(data);
+      });
     </script>
-</body>
+  </body>
 </html>

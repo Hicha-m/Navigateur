@@ -1,39 +1,30 @@
-from flask import Flask, render_template, request, send_from_directory
-import folium
+# app.py
+from flask import Flask, render_template
+from flask_socketio import SocketIO
+import webbrowser
+from recuperation import fetch_data_from_database
 
 app = Flask(__name__)
-
-# Initial marker location
-current_location = [37.7749, -122.4194]
+socketio = SocketIO(app)
 
 
-def generate_map(location):
-    my_map = folium.Map(location=location, zoom_start=12)
-    folium.Marker(location=location, popup="Hello, I am a marker!").add_to(my_map)
-    return my_map
-
-
+# Page d'accueil
 @app.route("/")
 def index():
     return render_template("index.html")
 
 
-@app.route("/my_map")
-def my_map():
-    generate_map(current_location).save("app/templates/my_map.html")
-    return send_from_directory("templates", "my_map.html")
-
-
-@app.route("/update_location", methods=["POST"])
-def update_location():
-    global current_location
-    if request.method == "POST":
-        new_latitude = float(request.form["latitude"])
-        new_longitude = float(request.form["longitude"])
-        current_location = [new_latitude, new_longitude]
-    return ""
+# Écoute des mises à jour de la base de données
+@socketio.on("update_map")
+def handle_update(data):
+    print("Received message:", data)
+    # Mettez à jour la carte avec les données de la base de données
+    updated_data = fetch_data_from_database()
+    socketio.emit("map_updated", updated_data)
 
 
 if __name__ == "__main__":
-    generate_map(current_location).save("app/templates/my_map.html")
-    app.run(debug=True)
+    browser = webbrowser.get()
+    browser.open("http://127.0.0.1:5000")
+    # Exécutez le serveur Flask-SocketIO
+    socketio.run(app, debug=True)

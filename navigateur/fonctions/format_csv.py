@@ -1,5 +1,6 @@
 import csv
 from unidecode import unidecode
+import re
 
 
 def formatter_temps_trains():
@@ -43,7 +44,7 @@ def formatter_villes_France():
 
 
 def normalize_text(text):
-    return unidecode(text.lower())
+    return re.sub(r"[^a-zA-Z0-9 ]", "", unidecode(text.lower()))
 
 
 def save(liste, dir, csv, sep=";"):

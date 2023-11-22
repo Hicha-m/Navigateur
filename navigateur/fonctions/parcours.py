@@ -5,7 +5,7 @@ from navigateur.classes.File import File
 def parcours_en_largeur(G, s):
     """Cette fonction renvoie un graphe H qui contient les sommets de G
     et seulement les arcs parcourus en explorant le graphe à partir du sommet s."""
-    n = G.taille_graphe()
+    n = G.taille_graphe()  # voir le cas pour G si Graphe ou MAtriceADjacent
     couleur = [-1] * n
     for i in range(n - 1):
         couleur[i] = "blanc"
