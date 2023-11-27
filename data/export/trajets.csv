@@ -1,0 +1,43 @@
+ville_debut;ville_fin;temps
+bordeaux;marseille;338
+lyon;rouen;221
+paris;limoges;195
+paris;lyon;113
+paris;metz;83
+paris;nancy;89
+paris;orleans;65
+paris;rouen;70
+lyon;lille;176
+paris;boulogne billancourt;127
+paris;brest;193
+paris;dijon;93
+paris;la rochelle;147
+paris;mulhouse;160
+paris;poitiers;76
+paris;reims;45
+paris;saint etienne;168
+bordeaux;lille;272
+paris;bayonne;234
+paris;bordeaux;120
+paris;cherbourg;187
+paris;lille;57
+paris;quimper;196
+paris;strasbourg;103
+lyon;strasbourg;209
+paris;caen;109
+paris;boulogne billancourt;195
+paris;grenoble;169
+paris;le havre;124
+paris;le mans;53
+paris;marseille;185
+paris;nantes;116
+paris;toulouse;245
+paris;tours;64
+lyon;nantes;264
+paris;amiens;66
+paris;angers;80
+paris;arras;48
+paris;montpellier;200
+paris;narbonne;250
+paris;nice;342
+paris;rennes;85

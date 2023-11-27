@@ -1,0 +1,206 @@
+nom;latitude;longitude
+figueres vilafant;42.264581;2.943028
+barcelone sants;41.379497;2.140607
+girona;41.979371;2.816957
+augsburg hbf;48.365616;10.885692
+francfort sur le main;50.1073;8.6624
+mannheim hbf;49.4794;8.4696
+karlsruhe hbf;48.9935;8.4019
+baden baden;48.790369;8.190768
+offenburg;48.4765;7.9468
+lahr  schwarzw ;48.340306;7.83479
+ringsheim;48.248667;7.773037
+freiburg  breisgau  hbf;47.997633;7.841052
+kaiserslautern hbf;49.4359;7.7688
+munich;48.1401;11.5587
+sarrebruck;49.241201;6.99069
+stuttgart hbf;48.784045;9.181389
+esslingen  neckar ;48.7388;9.3001
+ulm hbf;48.399605;9.982989
+luxembourg;49.599722;6.134722
+basel sbb;47.5474;7.58956
+geneve;46.210488;6.142086
+vallorbe;46.71242;6.37057
+lausanne;46.51679;6.62909
+zuerich hb;47.37817;8.54018
+marne la vallee chessy;48.869841;2.782731
+paris est;48.877098;2.35949
+nancy place de la republique;48.689857;6.174579
+luneville;48.58775;6.497139
+lorraine tgv;48.94743;6.170055
+epinal;48.178005;6.441787
+saint die des vosges;48.28184;6.948355
+remiremont;48.016536;6.598958
+meuse tgv;48.978627;5.271874
+reims;49.259121;4.023901
+champagne ardenne tgv;49.214459;3.993588
+charleville mezieres;49.767884;4.725132
+sedan;49.695024;4.930373
+rethel;49.504393;4.369566
+chalons en champagne;48.955467;4.348962
+vitry le francois;48.717913;4.587515
+bar le duc;48.77317;5.167809
+colmar;48.073527;7.347756
+mulhouse;47.7417;7.343
+thionville;49.353965;6.168582
+metz;49.107169;6.17724
+forbach;49.189482;6.900434
+strasbourg;48.58511;7.733882
+saverne;48.744483;7.362055
+selestat;48.259824;7.443157
+sarrebourg;48.73808;7.05285
+lille europe;50.639686;3.0749
+paris gare du nord;48.880398;2.354973
+aeroport charles de gaulle 2 tgv;49.004016;2.571109
+dunkerque;51.030304;2.368379
+calais   frethun;50.901934;1.811456
+lille flandres;50.63646;3.07084
+hazebrouck;50.725156;2.542448
+tourcoing;50.716289;3.167475
+croix   wasquehal;50.678638;3.137919
+roubaix;50.695544;3.162955
+belfort   montbeliard tgv;47.58602;6.89844
+besancon franche comte tgv;47.30799;5.953621
+tgv haute picardie;49.859123;2.832251
+rang du fliers   verton   berck;50.415855;1.648271
+etaples   le touquet;50.516915;1.643515
+boulogne sur mer;50.715589;1.610191
+avignon tgv;43.9214;4.787355
+aix en provence tgv;43.455268;5.317233
+futuroscope;46.669918;0.377209
+bethune;50.521175;2.640447
+arras;50.28671;2.781895
+valenciennes;50.363297;3.516468
+douai;50.371693;3.089969
+lens;50.426606;2.827858
+mantes la jolie;48.989789;1.703302
+paris montparnasse hall 1   2;48.840968;2.320272
+versailles chantiers;48.795649;2.135924
+massy palaiseau;48.725631;2.257868
+massy tgv;48.725832;2.261337
+le mans;47.995217;0.192434
+sable sur sarthe;47.842029;-0.3421
+rouen rive droite;49.449367;1.094233
+le havre;49.492884;0.125924
+rennes;48.103071;-1.672131
+redon;47.651845;-2.088298
+vitre;48.122483;-1.212851
+saint brieuc;48.507331;-2.766037
+lamballe;48.465923;-2.511489
+plouaret tregor;48.606223;-3.46641
+guingamp;48.555521;-3.143399
+lannion;48.726956;-3.460663
+brest;48.387693;-4.480094
+quimper;47.994668;-4.092166
+rosporden;47.960195;-3.832755
+landerneau;48.453711;-4.256595
+morlaix;48.577986;-3.83276
+lorient;47.755553;-3.36565
+auray;47.680115;-2.999186
+quimperle;47.869127;-3.553016
+vannes;47.665228;-2.75266
+dol de bretagne;48.543755;-1.750245
+saint malo;48.646531;-2.004049
+laval;48.076318;-0.761146
+nantes;47.217094;-1.541424
+ancenis;47.369543;-1.177663
+saint nazaire;47.286841;-2.211543
+pornichet;47.270339;-2.343916
+la baule escoublac;47.288673;-2.389126
+le pouliguen;47.282453;-2.434129
+le croisic;47.289738;-2.506908
+angers saint laud;47.46436;-0.5568
+la rochelle;46.152703;-1.145288
+surgeres;46.113422;-0.762124
+niort;46.319333;-0.454433
+saint maixent l ecole;46.406316;-0.201304
+la roche sur yon;46.671915;-1.435842
+les sables d olonne;46.500144;-1.782004
+saumur;47.26895;-0.071519
+tours;47.389429;0.693928
+vendome   villiers sur loir;47.822095;1.021112
+saint pierre des corps;47.385639;0.723696
+poitiers;46.582311;0.332758
+chatellerault;46.818667;0.54959
+bordeaux saint jean;44.825823;-0.556012
+biganos facture;44.637309;-0.965981
+la teste;44.637186;-1.14295
+arcachon;44.658809;-1.165392
+angouleme;45.653941;0.164531
+libourne;44.915797;-0.236035
+agen;44.208438;0.620701
+toulouse matabiau;43.611437;1.454237
+montauban ville bourbon;44.014178;1.341135
+carcassonne;43.218165;2.35243
+tarbes;43.239863;0.069442
+lourdes;43.1006;-0.041812
+pau;43.291467;-0.369458
+orthez;43.484085;-0.767643
+bayonne;43.497018;-1.470194
+dax;43.720807;-1.050515
+biarritz;43.459312;-1.545938
+hendaye;43.353165;-1.782095
+saint jean de luz   ciboure;43.385761;-1.660888
+paris gare de lyon hall 1   2;48.844578;2.373912
+montpellier sud de france;43.595188;3.924442
+le creusot tgv;46.765339;4.49943
+nimes pont du gard;43.816836;4.507638
+dijon;47.32288;5.026111
+montbard;47.61872;4.336159
+dole;47.096412;5.487967
+beaune;47.023034;4.848728
+frasne;46.857837;6.1577
+besancon viotte;47.247209;6.021583
+mouchard;46.976865;5.799698
+lyon perrache;45.748476;4.825353
+lyon part dieu;45.760596;4.859409
+chalon sur saone;46.78103;4.843164
+macon;46.302901;4.824482
+macon   loche tgv;46.282529;4.778882
+saint etienne chateaucreux;45.443366;4.399722
+chambery   challes les eaux;45.571319;5.919842
+aix les bains le revard;45.688055;5.908949
+saint avre   la chambre;45.353423;6.30198
+albertville;45.67308;6.382621
+moutiers salins brides les b ;45.48677;6.530839
+aime   la plagne;45.554353;6.648599
+landry;45.574757;6.734115
+bourg saint maurice;45.616227;6.772037
+saint jean de maurienne arvan;45.277961;6.354581
+saint michel   valloire;45.216937;6.471612
+bourg en bresse;46.200072;5.215132
+nurieux gare;46.184121;5.532726
+bellegarde;46.11014;5.824163
+annemasse;46.199633;6.236773
+thonon les bains;46.368915;6.481778
+evian les bains;46.39778;6.577651
+annecy;45.902726;6.122554
+cluses;46.061483;6.582773
+sallanches   combloux   megeve;45.935532;6.636619
+saint gervais les bains le fayet;45.9064;6.700551
+grenoble;45.191488;5.714222
+marseille saint charles;43.30303;5.380555
+marseille blancarde;43.296144;5.406559
+miramas;43.580954;4.999325
+arles;43.685359;4.632109
+toulon;43.12836;5.92972
+les arcs   draguignan;43.455592;6.482469
+hyeres;43.108257;6.124625
+nice ville;43.704832;7.26199
+saint raphael valescure;43.424386;6.768467
+cannes;43.553991;7.019577
+antibes;43.585879;7.119417
+valence ville;44.927646;4.893423
+lyon saint exupery tgv;45.720961;5.075793
+valence tgv rhone alpes sud;44.99155;4.978733
+montelimar;44.559067;4.744687
+avignon centre;43.941167;4.80633
+orange;44.137485;4.820058
+montpellier saint roch;43.60478;3.881168
+sete;43.412808;3.69641
+nimes centre;43.832387;4.366081
+beziers;43.336269;3.218993
+narbonne;43.190664;3.005562
+agde;43.317539;3.465748
+perpignan;42.696079;2.879622
+bruxelles midi;50.83556;4.336389

@@ -1,0 +1,637 @@
+ville;latitude;longitude
+paris;48.8567;2.3522
+marseille;43.2964;5.37
+lyon;45.76;4.84
+toulouse;43.6045;1.444
+nice;43.7034;7.2663
+nantes;47.2181;-1.5528
+montpellier;43.6119;3.8772
+strasbourg;48.5833;7.7458
+bordeaux;44.84;-0.58
+lille;50.6278;3.0583
+rennes;48.1147;-1.6794
+reims;49.2628;4.0347
+toulon;43.1258;5.9306
+saint etienne;45.4347;4.3903
+le havre;49.49;0.1
+grenoble;45.1715;5.7224
+dijon;47.3167;5.0167
+angers;47.4736;-0.5542
+villeurbanne;45.7667;4.8803
+nimes;43.838;4.361
+clermont ferrand;45.7831;3.0824
+aix en provence;43.5263;5.4454
+le mans;48.0077;0.1984
+brest;48.39;-4.49
+tours;47.3936;0.6892
+amiens;49.892;2.299
+limoges;45.8353;1.2625
+annecy;45.916;6.133
+boulogne billancourt;48.8352;2.2409
+perpignan;42.6986;2.8956
+metz;49.1203;6.1778
+besancon;47.24;6.02
+orleans;47.9025;1.909
+saint denis;48.9356;2.3539
+rouen;49.4428;1.0886
+montreuil;48.8611;2.4436
+argenteuil;48.95;2.25
+mulhouse;47.75;7.34
+caen;49.18;-0.37
+nancy;48.6936;6.1846
+roubaix;50.6901;3.1817
+tourcoing;50.7239;3.1612
+nanterre;48.8988;2.1969
+vitry sur seine;48.7875;2.3928
+creteil;48.7911;2.4628
+poitiers;46.58;0.34
+aubervilliers;48.9131;2.3831
+aulnay sous bois;48.9386;2.4906
+dunkerque;51.0383;2.3775
+colombes;48.9236;2.2522
+versailles;48.8053;2.135
+courbevoic;48.8978;2.2531
+rueil malmaison;48.876;2.181
+la rochelle;46.16;-1.15
+champigny sur marne;48.8172;2.5156
+pau;43.3;-0.37
+saint maur des fosses;48.7994;2.4997
+cannes;43.5513;7.0128
+antibes;43.5808;7.1239
+calais;50.9481;1.8564
+drancy;48.93;2.45
+merignac;44.8386;-0.6436
+saint nazaire;47.2736;-2.2139
+ajaccio;41.9267;8.7369
+issy les moulineaux;48.8239;2.27
+noisy le grand;48.8478;2.5528
+venissieux;45.6978;4.8867
+cergy;49.0361;2.0631
+levallois perret;48.895;2.2872
+pessac;44.8067;-0.6311
+valence;44.9333;4.8917
+ivry sur seine;48.8078;2.3747
+clichy;48.9044;2.3064
+la seyne sur mer;43.1;5.883
+antony;48.7539;2.2975
+troyes;48.2997;4.0792
+cherbourg;49.6333;-1.6
+neuilly sur seine;48.8881;2.2686
+pantin;48.8966;2.4017
+sarcelles;48.9956;2.3808
+chambery;45.57;5.9118
+bellevue;48.871;2.385
+le blanc mesnil;48.9387;2.4614
+lorient;47.75;-3.36
+beauvais;49.4303;2.0952
+maisons alfort;48.8058;2.4378
+meaux;48.9603;2.8883
+villejuif;48.7919;2.3636
+chelles;48.8833;2.6
+epinay sur seine;48.9553;2.3092
+bondy;48.9022;2.4828
+bobigny;48.9106;2.4397
+saint quentin;49.8486;3.2864
+vannes;47.6559;-2.7603
+evry;48.6239;2.4294
+clamart;48.8014;2.2628
+vaulx en velin;45.7768;4.9186
+sartrouville;48.9372;2.1644
+fontenay sous bois;48.8517;2.4772
+cagnes sur mer;43.6644;7.1489
+bayonne;43.49;-1.48
+sevran;48.9333;2.5333
+corbeil essonnes;48.6139;2.482
+saint ouen;48.9123;2.3342
+massy;48.7309;2.2713
+vincennes;48.8478;2.4392
+laval;48.0733;-0.7689
+suresnes;48.87;2.22
+montrouge;48.8172;2.3219
+gennevilliers;48.9333;2.3
+bastia;42.7008;9.4503
+saint herblain;47.2122;-1.6497
+belfort;47.64;6.85
+saint priest;45.6972;4.9447
+evreux;49.02;1.15
+charleville mezieres;49.7719;4.7161
+choisy le roi;48.763;2.409
+rosny sous bois;48.8667;2.4833
+meudon;48.8123;2.2382
+livry gargan;48.9192;2.5361
+puteaux;48.885;2.2389
+chalon sur saone;46.7806;4.8528
+la courneuve;48.9322;2.3967
+alfortville;48.805;2.4239
+noisy le sec;48.8894;2.4503
+chalons en champagne;48.9575;4.365
+mantes la jolie;48.9908;1.7172
+saint brieuc;48.5136;-2.7653
+sete;43.4053;3.6975
+talence;44.8;-0.584
+chateauroux;46.8103;1.6911
+valenciennes;50.3581;3.5233
+caluire et cuire;45.7953;4.8472
+garges les gonesse;48.9728;2.4008
+reze;47.1917;-1.5694
+tarbes;43.23;0.07
+bron;45.7394;4.9139
+le cannet;43.5769;7.0194
+ales;44.1281;4.0817
+angouleme;45.65;0.16
+arras;50.292;2.78
+bourg en bresse;46.2056;5.2289
+bagneux;48.7983;2.3137
+wattrelos;50.7;3.217
+melun;48.5406;2.66
+boulogne sur mer;50.7264;1.6147
+colomiers;43.6139;1.3367
+anglet;43.485;-1.5183
+gagny;48.8833;2.5333
+douai;50.3714;3.08
+poissy;48.9294;2.0456
+stains;48.95;2.3833
+marcq en baroeul;50.6711;3.0972
+chartres;48.456;1.484
+saint martin d heres;45.1672;5.7653
+villepinte;48.955;2.541
+franconville;48.9889;2.2314
+chatillon;48.8;2.29
+echirolles;45.1436;5.7183
+villenave d ornon;44.7806;-0.5658
+savigny sur orge;48.6797;2.3457
+annemasse;46.1958;6.2364
+villefranche sur saone;45.9833;4.7167
+creil;49.2583;2.4833
+bagnolet;48.8692;2.4181
+sainte genevieve des bois;48.6369;2.3403
+neuilly sur marne;48.8537;2.549
+thonon les bains;46.3627;6.475
+athis mons;48.7074;2.3889
+conflans sainte honorine;48.9992;2.0983
+palaiseau;48.7145;2.2457
+montlucon;46.3408;2.6033
+villeneuve saint georges;48.7325;2.4497
+meyzieu;45.7667;5.0036
+chatenay malabry;48.7653;2.2781
+nogent sur marne;48.8375;2.4833
+roanne;46.0367;4.0689
+schiltigheim;48.6078;7.75
+le perreux sur marne;48.8422;2.5036
+nevers;46.9933;3.1572
+les mureaux;48.9875;1.9172
+agen;44.2049;0.6212
+houilles;48.9261;2.1892
+trappes;48.7775;2.0025
+montigny le bretonneux;48.7711;2.0333
+cambrai;50.1767;3.2356
+pontoise;49.0516;2.1017
+l hay les roses;48.78;2.3374
+bezons;48.9261;2.2178
+lens;50.4322;2.8333
+vigneux sur seine;48.7001;2.417
+goussainville;49.0325;2.4747
+plaisir;48.8183;1.9472
+malakoff;48.8169;2.2944
+cachan;48.7919;2.3319
+viry chatillon;48.6713;2.375
+pierrefitte sur seine;48.9656;2.3614
+rillieux la pape;45.8214;4.8983
+thiais;48.765;2.3923
+begles;44.8086;-0.5478
+menton;43.775;7.5
+aix les bains;45.6885;5.9153
+lievin;50.4228;2.7786
+villemomble;48.8833;2.5
+chatou;48.8897;2.1573
+romainville;48.884;2.435
+le plessis robinson;48.7811;2.2633
+perigueux;45.1929;0.7217
+charenton le pont;48.8265;2.405
+saint cloud;48.84;2.22
+vandoeuvre les nancy;48.6567;6.1683
+savigny le temple;48.5841;2.5832
+ris orangis;48.6537;2.4161
+la garenne colombes;48.9056;2.2445
+maubeuge;50.2775;3.9734
+guyancourt;48.7714;2.0739
+yerres;48.7171;2.4881
+saint laurent du var;43.668;7.188
+ermont;48.9922;2.2603
+sotteville les rouen;49.4092;1.09
+clichy sous bois;48.9102;2.5532
+decines charpieu;45.7694;4.9594
+villiers sur marne;48.8275;2.5447
+bois colombes;48.9175;2.2683
+draveil;48.6852;2.408
+soissons;49.3817;3.3236
+fresnes;48.755;2.3221
+dieppe;49.92;1.08
+saint etienne du rouvray;49.3786;1.105
+villiers le bel;49.0094;2.3911
+grigny;48.6562;2.3849
+tournefeuille;43.5853;1.3442
+lomme;50.6455;2.9876
+montfermeil;48.9;2.5667
+vanves;48.8208;2.2897
+limeil brevannes;48.7464;2.4883
+le chesnay;48.8203;2.1303
+saint sebastien sur loire;47.2081;-1.5014
+lambersart;50.65;3.025
+bretigny sur orge;48.6114;2.3059
+vallauris;43.5805;7.0538
+sucy en brie;48.7697;2.5228
+taverny;49.0264;2.2275
+bussy saint georges;48.8422;2.6983
+oullins;45.715;4.8083
+villeparisis;48.9503;2.6025
+sannois;48.9722;2.2578
+le grand quevilly;49.4072;1.0531
+alencon;48.4306;0.0931
+montbeliard;47.51;6.8
+biarritz;43.48;-1.56
+gradignan;44.7725;-0.6156
+champs sur marne;48.8529;2.6027
+elancourt;48.7847;1.9589
+fontenay aux roses;48.7893;2.2888
+blagnac;43.6364;1.3906
+la garde;43.1256;6.0108
+cenon;44.8578;-0.5317
+cormeilles en parisis;48.9739;2.2014
+brunoy;48.6979;2.5044
+eaubonne;48.9922;2.2806
+bethune;50.5303;2.6408
+vichy;46.1278;3.4267
+le kremlin bicetre;48.81;2.3581
+armentieres;50.6881;2.8811
+saint ouen l aumone;49.0447;2.1111
+orly;48.7439;2.3928
+eysines;44.8853;-0.65
+rodez;44.3506;2.575
+villeneuve la garenne;48.9372;2.3278
+la valette du var;43.1383;5.9831
+les pavillons sous bois;48.9;2.5
+le bouscat;44.8651;-0.5996
+montgeron;48.7039;2.4605
+maisons laffitte;48.9469;2.1456
+sevres;48.8239;2.2117
+les lilas;48.88;2.42
+fontaine;45.1939;5.6856
+lormont;44.8792;-0.5217
+velizy villacoublay;48.7834;2.1834
+loos;50.6128;3.0144
+roissy en brie;48.7906;2.6519
+herouville saint clair;49.2044;-0.3253
+castelnau le lez;43.6369;3.9019
+tassin la demi lune;45.764;4.78
+saint mande;48.8422;2.4186
+torcy;48.8502;2.6508
+le petit quevilly;49.4311;1.0539
+dammarie le lys;48.5177;2.6402
+sainte foy les lyon;45.73;4.8
+deuil la barre;48.9767;2.3272
+la madeleine;50.6558;3.071
+montigny les metz;49.1006;6.1539
+combs la ville;48.67;2.56
+arcueil;48.8075;2.3361
+montmorency;48.9906;2.3228
+villeneuve le roi;48.7333;2.4167
+montigny les cormeilles;48.9944;2.1958
+acheres;48.9602;2.0684
+gif sur yvette;48.7018;2.1339
+saint jean de braye;47.9128;1.9719
+mons en baroeul;50.6369;3.1103
+longjumeau;48.6943;2.2958
+montereau faut yonne;48.3853;2.9508
+croix;50.6781;3.1508
+le mee sur seine;48.5333;2.6289
+fleury les aubrais;47.9312;1.921
+bourg la reine;48.7796;2.3151
+saint genis laval;45.696;4.793
+coudekerque branche;51.0253;2.3917
+neuilly plaisance;48.8619;2.5064
+saint gratien;48.9719;2.2828
+wasquehal;50.6694;3.1308
+la celle saint cloud;48.8411;2.1344
+mantes la ville;48.975;1.7117
+halluin;50.7836;3.1256
+nogent sur oise;49.2756;2.4683
+chaville;48.8086;2.1886
+morsang sur orge;48.6618;2.3461
+fougeres;48.3525;-1.1986
+saint michel sur orge;48.6325;2.3028
+saint pol sur mer;51.0314;2.3439
+lisieux;49.15;0.23
+le plessis trevise;48.8111;2.5717
+sceaux;48.7786;2.2906
+chevilly larue;48.7664;2.3533
+denain;50.3286;3.395
+chilly mazarin;48.7025;2.3125
+lingolsheim;48.5575;7.6831
+saint cyr l ecole;48.8003;2.0625
+joinville le pont;48.8214;2.4728
+saint fons;45.7086;4.8533
+moulins;46.5647;3.3325
+ronchin;50.6047;3.0878
+mont saint aignan;49.4625;1.0872
+cugnaux;43.5378;1.3436
+ecully;45.7744;4.7775
+villefontaine;45.6133;5.1486
+gentilly;48.8133;2.3444
+hem;50.6553;3.1878
+hellemmes lille;50.6283;3.11
+cran gevrier;45.9036;6.1039
+eragny;49.0172;2.0914
+soisy sous montmorency;48.9878;2.2997
+faches thumesnil;50.5989;3.0736
+floirac;44.8364;-0.5258
+chennevieres sur marne;48.7983;2.5339
+bonneuil sur marne;48.7742;2.4875
+maurepas;48.7628;1.9456
+garches;48.8456;2.1869
+meylan;45.2086;5.7794
+les clayes sous bois;48.8206;1.9836
+bry sur marne;48.8411;2.5222
+le pre saint gervais;48.885;2.4039
+juvisy sur orge;48.6883;2.3775
+bischheim;48.6139;7.7519
+lons le saunier;46.6744;5.5539
+chamalieres;45.7736;3.0669
+le pontet;43.9642;4.86
+limay;48.9933;1.7358
+cluses;46.0603;6.5786
+firminy;45.3881;4.2872
+boissy saint leger;48.7503;2.5097
+hendaye;43.3586;-1.7744
+octeville;49.6269;-1.6431
+viroflay;48.8;2.1722
+jouy le moutier;49.0108;2.0386
+port de bouc;43.405;4.9886
+carrieres sous poissy;48.9478;2.0386
+l isle d abeau;45.6194;5.2331
+vaureal;49.03;2.0214
+saint jean de la ruelle;47.9131;1.8733
+marly le roi;48.8669;2.0942
+le bourget;48.9344;2.4244
+saint leu la foret;49.0169;2.2464
+verneuil sur seine;48.9797;1.9739
+noisiel;48.8547;2.6289
+le pecq;48.8967;2.1061
+saint egreve;45.2317;5.6831
+le vesinet;48.8939;2.1322
+petite synthe;51.0231;2.3528
+saint julien en genevois;46.1442;6.0842
+orsay;48.6981;2.1875
+domont;49.0275;2.3267
+luce;48.4383;1.465
+bois d arcy;48.8014;2.0317
+carrieres sur seine;48.9108;2.2889
+rive de gier;45.5294;4.6169
+wattignies;50.585;3.0431
+saint brice sous foret;48.9986;2.3569
+montesson;48.9086;2.1494
+montargis;47.9969;2.7325
+vesoul;47.6222;6.1553
+verrieres le buisson;48.7475;2.2628
+francheville;45.7364;4.7636
+valenton;48.745;2.4672
+illzach;47.7822;7.3481
+haubourdin;50.6092;2.9869
+longwy;49.5197;5.7606
+le raincy;48.8992;2.5231
+ramonville saint agne;43.5461;1.4756
+bois guillaume;49.47;1.1194
+villers les nancy;48.6731;6.1547
+les sables d olonne;46.4972;-1.7833
+montmagny;48.9736;2.3458
+dinan;48.4556;-2.0503
+lognes;48.8361;2.6278
+arnouville les gonesse;48.9872;2.4167
+chenove;47.2911;5.0072
+castanet tolosan;43.5156;1.4981
+saint maurice;48.8183;2.4347
+auray;47.6678;-2.9825
+fleury merogis;48.6294;2.3614
+persan;49.1533;2.2711
+avon;48.4089;2.725
+lys les lannoy;50.6714;3.2144
+beausoleil;43.7419;7.4236
+outreau;50.7039;1.5939
+montevrain;48.8753;2.7456
+fontenay le fleury;48.8136;2.0486
+courcouronnes;48.6239;2.4294
+morangis;48.7064;2.3347
+vaires sur marne;48.8742;2.6381
+audincourt;47.4828;6.8397
+anzin;50.3714;3.5044
+andresy;48.9808;2.0583
+kingersheim;47.7914;7.3381
+mouvaux;50.7033;3.1406
+saint andre;50.6603;3.0439
+bayeux;49.2786;-0.7039
+ostwald;48.5511;7.7136
+billere;43.3025;-0.3972
+saint andre les vergers;48.2797;4.0539
+riedisheim;47.7483;7.3669
+epinay sous senart;48.6931;2.5158
+bully les mines;50.4419;2.7244
+marly;50.3489;3.5442
+l union;43.6564;1.4844
+villecresnes;48.7214;2.5342
+vitry le francois;48.7247;4.5844
+le relecq kerhuon;48.4086;-4.3969
+talant;47.3364;5.0056
+arcachon;44.6586;-1.1689
+yvetot;49.6169;0.7531
+enghien les bains;48.9697;2.3081
+stiring wendel;49.2;6.9292
+arpajon;48.5903;2.2478
+mericourt;50.4022;2.8658
+bruay sur l escaut;50.3983;3.5394
+hoenheim;48.6242;7.7547
+craponne;45.7453;4.7233
+ville d avray;48.8261;2.1933
+epinay sur orge;48.6739;2.3272
+dugny;48.9536;2.4164
+saint jean;43.6653;1.505
+saint germain les arpajon;48.5953;2.2556
+voisins le bretonneux;48.7583;2.0508
+cesson;48.5658;2.6011
+marquette les lille;50.6758;3.0661
+beaumont;45.7517;3.0831
+maromme;49.4819;1.0419
+le pont de claix;45.1231;5.6981
+deville les rouen;49.4697;1.0497
+pierre benite;45.7036;4.8242
+thorigny sur marne;48.8788;2.7075
+chanteloup les vignes;48.9783;2.0308
+ormesson sur marne;48.7858;2.5383
+gaillard;46.185;6.2075
+auchel;50.5083;2.4736
+montigny en gohelle;50.4278;2.9297
+tinqueux;49.25;3.9908
+avranches;48.6844;-1.3569
+neuville en ferrain;50.7467;3.1581
+clermont;49.3789;2.4125
+caudebec les elbeuf;49.2808;1.0211
+aniche;50.33;3.2511
+vernouillet;48.9722;1.9833
+villeneuve tolosane;43.5236;1.3417
+bondoufle;48.6133;2.3806
+croissy sur seine;48.8778;2.1422
+ferney voltaire;46.2558;6.1081
+saint max;48.7011;6.2067
+villerupt;49.4697;5.9286
+oignies;50.4692;2.9936
+eybens;45.1486;5.7503
+igny;48.7422;2.2261
+maxeville;48.7114;6.1631
+fosses;49.0981;2.5067
+darnetal;49.4447;1.1511
+pfastatt;47.7689;7.3017
+ezanville;49.0278;2.3608
+grigny;45.6083;4.7897
+sallaumines;50.4197;2.8622
+neuville les dieppe;49.9267;1.1014
+bures sur yvette;48.6967;2.1614
+beaumont sur oise;49.1425;2.2864
+serris;48.8564;2.7861
+quincy sous senart;48.6711;2.5339
+leers;50.6817;3.2439
+crosne;48.7147;2.4611
+jarville la malgrange;48.6694;6.2061
+le cres;43.6472;3.9392
+hagondange;49.2542;6.1681
+le portel;50.7067;1.5733
+evian les bains;46.4006;6.59
+magny le hongre;48.8631;2.8136
+ville la grand;46.2022;6.2469
+perols;43.565;3.9506
+aucamville;43.6686;1.4306
+tomblaine;48.6856;6.2117
+fontaine les dijon;47.3433;5.0192
+essey les nancy;48.7058;6.2222
+bougival;48.865;2.1394
+wingles;50.4942;2.8553
+beauchamp;49.0139;2.19
+vaucresson;48.8425;2.1528
+boucau;43.5236;-1.4867
+groslay;48.9867;2.3444
+perenchies;50.6681;2.9725
+le plessis bouchard;49.0028;2.2367
+la salvetat saint gilles;43.5761;1.2714
+saint aubin les elbeuf;49.3003;1.0111
+harfleur;49.5067;0.1981
+bihorel;49.4547;1.1167
+meythet;45.9153;6.0928
+terrenoire;45.4343;4.4377
+l ile saint denis;48.9358;2.3397
+carbon blanc;44.8947;-0.5064
+billy montigny;50.4181;2.9119
+la tour du pin;45.5658;5.445
+courcelles les lens;50.4181;3.0181
+la ville du bois;48.6606;2.2692
+souffelweyersheim;48.635;7.7408
+boussy saint antoine;48.6908;2.5325
+le mesnil esnard;49.4108;1.1419
+cappelle la grande;50.9983;2.3642
+talange;49.2367;6.1744
+coulaines;48.0267;0.2042
+montlhery;48.6386;2.2722
+saint germain les corbeil;48.6206;2.4892
+waziers;50.3872;3.1131
+sainte adresse;49.5064;0.0833
+huningue;47.5914;7.5831
+vaujours;48.9339;2.5719
+terville;49.3444;6.1342
+guingamp;48.5625;-3.1511
+fontaines sur saone;45.8358;4.845
+villemoisson sur orge;48.6653;2.3308
+liancourt;49.3308;2.4653
+beauzelle;43.6653;1.3775
+gournay sur marne;48.8597;2.5764
+grenay;50.4522;2.7431
+beuvrages;50.3858;3.5056
+jacou;43.6608;3.9103
+courtry;48.9175;2.6031
+luisant;48.4317;1.4764
+neuves maisons;48.6161;6.1036
+noyelles sous lens;50.4306;2.8728
+bouffemont;49.0433;2.2992
+joeuf;49.2297;6.0089
+carnoux en provence;43.2564;5.5644
+la verriere;48.7586;1.9622
+la bassee;50.5336;2.8072
+la mulatiere;45.7281;4.8122
+la penne sur huveaune;43.2806;5.5158
+sathonay camp;45.8247;4.8744
+bonsecours;49.4278;1.1278
+fouquieres les lens;50.4286;2.9128
+l arbresle;45.8356;4.6169
+esbly;48.9031;2.8125
+egly;48.5806;2.2239
+le mesnil le roi;48.9281;2.1225
+la montagne;47.19;-1.6839
+ambilly;46.195;6.2242
+saint alban;43.6919;1.4147
+magnanville;48.9672;1.6819
+saint priest en jarez;45.4742;4.3781
+pont de cheruy;45.7506;5.1731
+palavas les flots;43.5294;3.9306
+menucourt;49.0272;1.9814
+ablon sur seine;48.7256;2.4211
+saintry sur seine;48.5908;2.4969
+longueau;49.8703;2.3561
+champagne au mont d or;45.7947;4.7908
+saint andre de la roche;43.74;7.2878
+le port marly;48.8792;2.1097
+heillecourt;48.6525;6.1942
+loison sous lens;50.4383;2.8683
+cregy les meaux;48.9786;2.8783
+montaigu;46.9728;-1.31
+grand fort philippe;50.9978;2.1092
+bassens;45.5811;5.9408
+mandres les roses;48.7022;2.5444
+saint nicolas;50.3028;2.7772
+la frette sur seine;48.9742;2.1783
+nilvange;49.3422;6.05
+villiers sur orge;48.6578;2.3028
+cap d ail;43.7211;7.4056
+le ban saint martin;49.1219;6.1506
+leuville sur orge;48.6169;2.2644
+avesnes sur helpe;50.1236;3.9256
+valras plage;43.2469;3.2908
+jacob bellecombette;45.5556;5.9136
+ascq;50.6194;3.1597
+longeville les metz;49.1144;6.1353
+lourches;50.3147;3.3553
+toufflers;50.6608;3.2297
+sochaux;47.5144;6.8314
+neuville saint remy;50.1878;3.2222
+beaulieu sur mer;43.7069;7.3314
+mareil marly;48.8819;2.0767
+bergues;50.9686;2.4342
+fort mardyck;51.031;2.3061
+saint mammes;48.3867;2.8142
+neauphle le chateau;48.8144;1.9022
+les noes pres troyes;48.3025;4.0411
+pont a vendin;50.4736;2.8886
+rouelles;49.5208;0.1608
+paimboeuf;47.2875;-2.0317
+eleu dit leauwette;50.4208;2.8111
+courchelettes;50.345;3.0592
+port louis;47.7067;-3.3533
+sainte foy la grande;44.8406;0.2172
+treguier;48.785;-3.2325
+hesdin;50.3742;2.0367
+les roches de condrieu;45.4531;4.7678
+neuf brisach;48.0181;7.5283
+cravanche;47.6539;6.8325
+lannoy;50.6661;3.2106
+saint laurent sur saone;46.3053;4.8394
+la neuvillette les reims;49.289;4.0058
+laleu;46.1689;-1.1994
+la walck;48.8497;7.6108
+chatelaudren;48.5422;-2.9711
+quimper;47.9975;4.0975
+narbonne;43.1833;3.0042
