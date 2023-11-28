@@ -28,3 +28,4 @@ lancer le navigateur/main.py pour lancer le projet
 version web lancer le app/app.py
 puis aller http://127.0.0.1:5000
 ```
+Si possible lancer le projet sur vscode pour éviter des soucies d'importation.
