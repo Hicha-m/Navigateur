@@ -127,7 +127,7 @@ def afficher_donnee_brut(g, avoir_connexion):
 
 
 def afficher_donnee_marche(g, avoir_connexion):
-    g_marche = g.marche_graphe(avoir_connexion)
+    g_marche = g.marche_graphe()
     afficher_carte(g, avoir_connexion)
     isomap_graphe(g_marche)
 
