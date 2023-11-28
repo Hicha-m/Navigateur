@@ -5,10 +5,11 @@ from navigateur.fonctions.parcours import (
 )
 
 
-
 class Interface:
     def __init__(self):
         self.fig, self.ax = plt.subplots()
+
+        plt.title("Carte")
 
     def plot_villes(self, villes):
         x = [ville.coordonnee[1] for ville in villes]
@@ -57,6 +58,7 @@ def isomap_graphe(g, voisins=True):
     embedding = isomap.fit_transform(adjacency_matrix)
 
     plt.figure()
+    plt.title("Isomap")
     plt.scatter(embedding[:, 0], embedding[:, 1])
     for i, (x, y) in enumerate(embedding):
         plt.annotate(

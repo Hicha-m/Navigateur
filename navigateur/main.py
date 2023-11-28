@@ -8,8 +8,8 @@ from navigateur.fonctions.setup_graphe import (
     afficher_donnee_marche,
     afficher_donnee_ajout_marche,
 )
+from navigateur.fonctions.parcours import Itineraire, parcours_en_largeur
 from matplotlib.pyplot import show
-
 
 g_villes, dicte_villes, connexions_villes = setup_g_villes()
 g_gares_tgv, dicte_Gares_tgv, connexions_gares_tgv = setup_g_gares(
@@ -21,6 +21,17 @@ g_gares_intercites, dicte_Gares_intercites, connexions_gares_intercites = setup_
 g_gares_ter, dicte_Gares_ter, connexions_gares_ter = setup_g_gares(
     "export-ter-gtfs-last"
 )
+
+
+"""
+print(g_villes.avoir_noeuds_nom())
+chemin, temps = Itineraire(
+    g_villes, g_villes.avoir_noeud_nom("paris"), g_villes.avoir_noeud_nom("grenoble")
+)
+print([c.nom for c in chemin], temps)
+"""
+# print(parcours_en_largeur(g_villes.matrice, g_villes.index_nom("paris")))
+
 
 map_graphe = {
     "0": (g_villes, g_gares_tgv),

@@ -7,7 +7,7 @@ class MatriceAdjacence:
     def nouveau_graphe(self):
         """methode qui renvoie un graphe de n sommets sans aucun arc"""
         self.matrice = [
-            [self.valeur for j in range(self.dimension)] for i in range(self.dimension)
+            [self.default for j in range(self.dimension)] for i in range(self.dimension)
         ]
 
     def taille_graphe(self) -> int:
@@ -30,7 +30,7 @@ class MatriceAdjacence:
 
     def existe_arc(self, i: int, j: int) -> bool:
         """methode qui renvoie True s’il y a un arc i → j dans le graphe G"""
-        return self.matrice[i][j] == 1
+        return self.matrice[i][j] != self.default
 
     def copy(self):
         """Return a new SquareMatrix containing the same values."""

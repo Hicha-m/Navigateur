@@ -61,7 +61,7 @@ class Graphe:
         Retourne un noeud selon son nom
         """
         i = self.strAindice.get(nom)
-        if i is int:
+        if type(i) is int:
             return self.noeuds[i]
         return None
 
@@ -79,6 +79,18 @@ class Graphe:
         Retourne la liste de tous les noeuds
         """
         return self.noeuds
+
+    def avoir_noeuds_nom(self) -> list:
+        """
+        Retourne la liste de tous les noeuds
+        """
+        return [noeud.nom for noeud in self.noeuds]
+
+    def avoir_arrete(self, noeud1, noeud2) -> list:
+        """
+        Retourne la liste de toutes les connexions
+        """
+        return self.matrice.avoir_arc(self.index_noeud(noeud1),self.index_noeud(noeud2))
 
     def avoir_arretes(self) -> list:
         """

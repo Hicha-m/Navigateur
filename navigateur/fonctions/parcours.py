@@ -3,24 +3,25 @@ from navigateur.classes.File import File
 from navigateur.classes.Graphe import Graphe, DEFAULT
 
 
-def parcours_en_largeur(G, s):
+def parcours_en_largeur(M, s):
     """Cette fonction renvoie un graphe H qui contient les sommets de G
     et seulement les arcs parcourus en explorant le graphe à partir du sommet s."""
-    n = G.taille_graphe()  # voir le cas pour G si Graphe ou MAtriceADjacent
+    n = M.taille_graphe()
     couleur = [-1] * n
     for i in range(n - 1):
         couleur[i] = "blanc"
-    H = MatriceAdjacence(n)
+    H = MatriceAdjacence(0, n)
     H.nouveau_graphe()
     F = File()
     couleur[s] = "rouge"
     F.enfiler(s)
+    print(F.file)
     while not F.file_vide():
         i = F.defiler()
-        for j in range(n - 1):
-            if G.existe_arc(i, j) == True and couleur[j] == "blanc":
+        for j in range(n ):
+            if M.existe_arc(i, j) == True and couleur[j] == "blanc":
                 couleur[j] = "rouge"
-                H.ajouter_arc(i, j)
+                H.ajouter_arc(i, j, M.avoir_arc(i, j))
                 F.enfiler(j)
         couleur[i] = "vert"
     return H
@@ -44,7 +45,9 @@ def parcours_Floyd_Warshall(G: Graphe) -> (MatriceAdjacence, MatriceAdjacence):
     """
 
     dist_matrice = G.matrice.copy()
-    predecesseur_matrice = G.matrice.copy() # matrice predecesseur qui va permettre de retrouver le chemin avec les indices
+    predecesseur_matrice = (
+        G.matrice.copy()
+    )  # matrice predecesseur qui va permettre de retrouver le chemin avec les indices
 
     for i in range(dist_matrice.taille_graphe()):
         for j in range(dist_matrice.taille_graphe()):
@@ -65,7 +68,9 @@ def parcours_Floyd_Warshall(G: Graphe) -> (MatriceAdjacence, MatriceAdjacence):
                 chemin_principale = dist_matrice.avoir_arc(i, j)
                 if chemin_intermediaire < chemin_principale:
                     dist_matrice.ajouter_arc(i, j, chemin_intermediaire)
-                    predecesseur_matrice.ajouter_arc(i, j, predecesseur_matrice.avoir_arc(k, j))
+                    predecesseur_matrice.ajouter_arc(
+                        i, j, predecesseur_matrice.avoir_arc(k, j)
+                    )
 
     return (dist_matrice, predecesseur_matrice)
 
@@ -89,16 +94,10 @@ def avoir_chemin_Floyd_Warshall(
     return chemin
 
 
-''' a mettre en place
-def ListeVoisins(D, M, sommet):
-    """Renvoie la liste des voisins de sommet dans le graphe"""
-    return [voisin for voisin in D if M[D[sommet]][D[voisin]] > 0]
-
-
 def Min(Dis, T):
     """Renvoie un sommet non traité (qui n’est pas dans T) dont la valeur
     dans Dis est minimale"""
-    m = np.inf
+    m = DEFAULT
     for sommet in Dis:
         if sommet not in T and Dis[sommet] <= m:
             m = Dis[sommet]
@@ -106,18 +105,21 @@ def Min(Dis, T):
     return smin
 
 
-def Dijkstra(D, M, source):
+def Dijkstra(G, source):
     """Algorithme de Dijkstra: trouve le plus court chemin de source à
     n’importe quel sommet"""
     T = {}  # dictionnaire dont les clés sont les sommets traités
-    Dis = {sommet: np.inf for sommet in D}
+    Dis = {sommet: DEFAULT for sommet in G.avoir_noeuds()}
+
     Dis[source] = 0
     P = {source: source}
-    for i in range(len(D)):
+    for i in range(G.avoir_taille()):
         smin = Min(Dis, T)
         T[smin] = smin
-        for voisin in ListeVoisins(D, M, smin):
-            d = Dis[smin] + M[D[smin]][D[voisin]]  # distance entre source et voisin
+        for voisin in G.avoir_adjacent(smin):
+            d = Dis[smin] + G.avoir_arrete(
+                smin, voisin
+            )  # distance entre source et voisin
             # si on passe smin
             if Dis[voisin] > d:
                 Dis[voisin] = d
@@ -125,10 +127,10 @@ def Dijkstra(D, M, source):
     return Dis, P
 
 
-def Itineraire(D, M, source, but):
+def Itineraire(G, source, but):
     """Renvoie l'itinéraire dans le graphe du plus court chemin entre source
     et but"""
-    Dis, P = Dijkstra(D, M, source)  # On prend la version la plus rapide
+    Dis, P = Dijkstra(G, source)  # On prend la version la plus rapide
     buti = but
     Chemin = [but]  # Liste des sommets à parcourir
     while but != source:
@@ -138,10 +140,5 @@ def Itineraire(D, M, source, but):
     return Chemin, Dis[buti]  # On renvoie le chemin et le temps de parcours
 
 
-print(Itineraire(D, M, "paris", "grenoble"))
-'''
-
 if __name__ == "__main__":
-    g = MatriceAdjacence(2)
-    g.nouveau_graphe()
-    print(g)
+    pass
