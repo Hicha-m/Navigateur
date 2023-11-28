@@ -14,14 +14,14 @@ from navigateur.fonctions.get_csv import (
 
 
 def avoir_listeNoeud_mapNoeudStr(localisation: dict[str, tuple], g, classe):
-    listeNoeud = []
+    dicteNoeud = {}
     mapNoeudStr = {}
     for nom, coor in localisation.items():
         noeud = classe(nom, coor)
-        listeNoeud.append(noeud)
+        dicteNoeud[nom] = [*coor]
         g.ajouter_noeud(noeud)
         mapNoeudStr[nom] = noeud
-    return listeNoeud, mapNoeudStr
+    return dicteNoeud, mapNoeudStr
 
 
 def avoir_mapGareId(stops: dict[str, tuple]):
@@ -33,6 +33,14 @@ def avoir_mapGareId(stops: dict[str, tuple]):
     return map_gare_id
 
 
+def id(id):
+    return id
+
+
+def idENStr(id, map_id):
+    return map_id[id]
+
+
 def idENGare(id, map_id, map_str):
     return map_str[map_id[id]]
 
@@ -41,23 +49,36 @@ def idENVille(id, map_str):
     return map_str[id]
 
 
-def avoir_connexions(trajets, g, convert, args_convert):
-    # convert idENGare
+def avoir_connexions(
+    trajets, g, convert_class, args_convert_class, convert_str, args_convert_str
+):
     connexions = []
 
-    for noeud1, noeud2, temps in trajets:
+    for noeud1_str, noeud2_str, temps in trajets:
         connexions.append(
-            [convert(noeud1, *args_convert), convert(noeud2, *args_convert)]
+            [
+                convert_str(noeud1_str, *args_convert_str),
+                convert_str(noeud2_str, *args_convert_str),
+                temps,
+            ]
         )
         connexions.append(
-            [convert(noeud1, *args_convert), convert(noeud2, *args_convert)]
+            [
+                convert_str(noeud2_str, *args_convert_str),
+                convert_str(noeud1_str, *args_convert_str),
+                temps,
+            ]
         )
 
         g.ajouter_arrete(
-            convert(noeud1, *args_convert), convert(noeud2, *args_convert), temps
+            convert_class(noeud1_str, *args_convert_class),
+            convert_class(noeud2_str, *args_convert_class),
+            temps,
         )
         g.ajouter_arrete(
-            convert(noeud1, *args_convert), convert(noeud2, *args_convert), temps
+            convert_class(noeud1_str, *args_convert_class),
+            convert_class(noeud2_str, *args_convert_class),
+            temps,
         )
 
     return connexions
@@ -69,45 +90,50 @@ def setup_g_villes():
     villes_inter_trajets = avoir_villes_inter_trajets()
     trajets = avoir_trajets()
     ##
-    liste_villes, map_villes_str = avoir_listeNoeud_mapNoeudStr(
+    dicte_villes, map_villes_str = avoir_listeNoeud_mapNoeudStr(
         villes_inter_trajets, g_villes, Ville
     )
     connexions_villes = avoir_connexions(
-        trajets, g_villes, idENVille, (map_villes_str,)
+        trajets, g_villes, idENVille, (map_villes_str,), id, ()
     )
-    return g_villes
+    return g_villes, dicte_villes, connexions_villes
 
 
-def setup_g_gares():
+def setup_g_gares(export):
     g_gares = Graphe()
     ## donnée
-    stops = avoir_gtfs_stop("export_gtfs_voyages")
-    stops_sans_dup = avoir_gtfs_stop_sans_dup("export_gtfs_voyages")
-    stops_temps = avoir_gtfs_stop_temps("export_gtfs_voyages")
+    stops = avoir_gtfs_stop(export)
+    stops_sans_dup = avoir_gtfs_stop_sans_dup(export)
+    stops_temps = avoir_gtfs_stop_temps(export)
     ##
-    liste_Gares, map_gare_str = avoir_listeNoeud_mapNoeudStr(
+    dicte_Gares, map_gare_str = avoir_listeNoeud_mapNoeudStr(
         stops_sans_dup, g_gares, Gare
     )
     map_gare_id = avoir_mapGareId(stops)
     connexions_gares = avoir_connexions(
-        stops_temps, g_gares, idENGare, (map_gare_id, map_gare_str)
+        stops_temps,
+        g_gares,
+        idENGare,
+        (map_gare_id, map_gare_str),
+        idENStr,
+        (map_gare_id,),
     )
-    return g_gares
+    return g_gares, dicte_Gares, connexions_gares
 
 
-def afficher_donnee_brut(g):
-    afficher_carte(g)
+def afficher_donnee_brut(g, avoir_connexion):
+    afficher_carte(g, avoir_connexion)
     isomap_graphe(g)
 
 
-def afficher_donnee_marche(g):
-    g_marche = g.marche_graphe()
-    afficher_carte(g)
+def afficher_donnee_marche(g, avoir_connexion):
+    g_marche = g.marche_graphe(avoir_connexion)
+    afficher_carte(g, avoir_connexion)
     isomap_graphe(g_marche)
 
 
-def afficher_donnee_ajout_marche(g):
-    afficher_carte(g)
+def afficher_donnee_ajout_marche(g, avoir_connexion):
+    afficher_carte(g, avoir_connexion)
     g.ajouter_arretes_manquante()
     isomap_graphe(g)
 

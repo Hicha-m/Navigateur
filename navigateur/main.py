@@ -11,55 +11,52 @@ from navigateur.fonctions.setup_graphe import (
 from matplotlib.pyplot import show
 
 
-g_villes = setup_g_villes()
-g_gares = setup_g_gares()
+g_villes, dicte_villes, connexions_villes = setup_g_villes()
+g_gares_tgv, dicte_Gares_tgv, connexions_gares_tgv = setup_g_gares(
+    "export_gtfs_voyages"
+)
+g_gares_intercites, dicte_Gares_intercites, connexions_gares_intercites = setup_g_gares(
+    "export-intercites-gtfs-last"
+)
+g_gares_ter, dicte_Gares_ter, connexions_gares_ter = setup_g_gares(
+    "export-ter-gtfs-last"
+)
+
+map_graphe = {
+    "0": (g_villes, g_gares_tgv),
+    "1": (g_villes,),
+    "2": (g_gares_tgv,),
+    "3": (g_gares_intercites,),
+    "4": (g_gares_ter,),
+}
+map_affichage = {
+    "1": afficher_donnee_brut,
+    "2": afficher_donnee_marche,
+    "3": afficher_donnee_ajout_marche,
+}
 
 stop = True
 while stop:
-    entre = input(
-        "Veuiller choisir vos graphes soit ville(1) ou soit gare(2) ou les deux(0) : "
+    entree_graphe = input(
+        "Veuiller choisir vos graphes soit villes(1),soit gares_tgv(2),soit gares_intercites(3),soit gares_ter(4) ou villes,gares_tgv(0) : "
     )
-    if entre == "0":
-        entre = input(
-            "Veuiller choisir votre type d'affichage soit brut(1) ou soit marche(2) ou soit ajout_marche(3) : "
-        )
-        if entre == "1":
-            afficher_donnee_brut(g_villes)
-            afficher_donnee_brut(g_gares)
-            show()
-        elif entre == "2":
-            afficher_donnee_marche(g_villes)
-            afficher_donnee_marche(g_gares)
-            show()
-        elif entre == "3":
-            afficher_donnee_ajout_marche(g_villes)
-            afficher_donnee_ajout_marche(g_gares)
-            show()
-    elif entre == "1":
-        entre = input(
-            "Veuiller choisir votre type d'affichage soit brut(1) ou soit marche(2) ou soit ajout_marche(3) : "
-        )
-        if entre == "1":
-            afficher_donnee_brut(g_villes)
-            show()
-        elif entre == "2":
-            afficher_donnee_marche(g_villes)
-            show()
-        elif entre == "3":
-            afficher_donnee_ajout_marche(g_villes)
-            show()
-    elif entre == "2":
-        entre = input(
-            "Veuiller choisir votre type d'affichage soit brut(1) ou soit marche(2) ou soit ajout_marche(3) : "
-        )
-        if entre == "1":
-            afficher_donnee_brut(g_gares)
-            show()
-        elif entre == "2":
-            afficher_donnee_marche(g_gares)
-            show()
-        elif entre == "3":
-            afficher_donnee_ajout_marche(g_gares)
-            show()
+    graphes = map_graphe.get(entree_graphe, False)
 
-    stop = True
+    if not graphes:
+        continue
+
+    entree_affichage = input(
+        "Veuiller choisir votre type d'affichage soit brut(1) ou soit marche(2) ou soit ajout_marche(3) : "
+    )
+
+    affichage = map_affichage.get(entree_affichage, False)
+
+    if not affichage:
+        continue
+
+    connexion = True
+
+    for g in graphes:
+        affichage(g, connexion)
+
+    show()

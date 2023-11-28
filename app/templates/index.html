@@ -1,113 +1,65 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Map Update</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.1/socket.io.js"></script>
+<html lang="fr-FR">
 
-    <!-- Inclure ici la bibliothèque JavaScript de la carte (par exemple, Leaflet) -->
-    <style>
-      html,
-      body {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-      #map {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        left: 0;
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Affichage de la carte -->
-    <div id="map"></div>
+    <head>
+        <title>Projet Navigateur</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Site Hebergeur de notre gps">
+        <link rel="stylesheet" href="./static/style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Roboto&display=swap" rel="stylesheet">
+        <script src="./static/scripts.js" async></script>
+    </head>
+    <body>
+        <header>
+            <h1>Trouver le One Piece</h1>
+        </header>
+        <nav>
+            <div class="table">
+                <ul>
+                    <li class="menu-ind">
+                        <a href="./">Accueil</a>
+                    </li>
+                    <li class="menu-con">
+                        <a href="./contact">Contactez-moi !</a>
+                    </li>
+                    <li>
+                        <button type="button" onclick="dark()" class="btn">NUIT</button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <article>
+            <section class="presentation">
+                <h1>Tester Notre GPS</h1>
+				
+                <div class="sec">
+				<h2>Appuyer en bas</h2>
+                    <div class="left" >
+                        <h1>Fait par notre equipe de developpeur professionnelles</h1>
+                        <img class="logo" src="./static/image/dev.jpeg" alt="Image html">
+					   
+                    </div>
+					
+                    <div class="right">
+                        <p>Nous allons vous présentez notre projet Le Navigateur</p>
+						<p> Si vous voulez tester son fonctionnement veuillez appuyer sur la terre </p>
+						<a href="./carte"><img class="maps" src="./static/image/yass.png"></a>
+						<img class="logo" src="https://i.pinimg.com/originals/2e/6b/45/2e6b4537f03290cbdcf32566d34cd4db.gif" alt="Image html">
+						
+                    </div>
+					
+                </div>
+                <div class="sec">
 
-    <script>
-      var map = L.map("map").setView([46.6031, 1.8883], 6);
-      console.log("La carte a été créée avec succès.");
-      // Ajoutez une couche de carte (par exemple, OpenStreetMap)
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution: "© OpenStreetMap contributors",
-      }).addTo(map);
+                        
+                    </div>
+               
+                    </div>
+                </div>
+            </section>
+        </article>
 
-      // Fonction pour mettre à jour la carte avec les nouvelles données
-      function updateMap(data) {
-        // Effacer toutes les couches existantes
-        map.eachLayer(function (layer) {
-          if (layer instanceof L.Marker || layer instanceof L.Polyline) {
-            map.removeLayer(layer);
-          }
-        });
+    <body>  
 
-        // Ajouter des marqueurs pour chaque ville
-        data.cities.forEach(function (cityData) {
-          var cityId = cityData[0];
-          var cityName = cityData[1];
-          var cityLatitude = cityData[2];
-          var cityLongitude = cityData[3];
-
-          // Choisir la couleur du marqueur en fonction de la ville
-          var markerColor = "blue"; // Vous pouvez personnaliser cela selon vos besoins
-          var markerIcon = new L.Icon({
-            iconUrl:
-              "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-" +
-              markerColor +
-              ".png",
-            shadowUrl:
-              "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
-            iconSize: [25, 41],
-            iconAnchor: [12, 41],
-            popupAnchor: [1, -34],
-            shadowSize: [41, 41],
-          });
-
-          L.marker([cityLatitude, cityLongitude], {
-            icon: markerIcon,
-          })
-            .addTo(map)
-            .bindPopup(cityName + " (ID: " + cityId + ")");
-        });
-
-        // Ajouter des connexions entre les villes
-        data.connections.forEach(function (connectionData) {
-          var city1Id = connectionData[0];
-          var city2Id = connectionData[1];
-          var time = connectionData[2];
-
-          var city1 = data.cities.find((c) => c[0] === city1Id);
-          var city2 = data.cities.find((c) => c[0] === city2Id);
-
-          if (city1 && city2) {
-            var polyline = L.polyline(
-              [
-                [city1[2], city1[3]],
-                [city2[2], city2[3]],
-              ],
-              { color: "blue", weight: 2 }
-            ).addTo(map);
-            // Ajouter un popup avec le temps sur la polyline
-            polyline.bindPopup("Temps de trajet : " + time + " minutes");
-          }
-        });
-      }
-
-      var socket = io.connect(
-        "http://" + document.domain + ":" + location.port
-      );
-
-      // Écoute des mises à jour de la carte
-      socket.on("map_updated", function (data) {
-        // Mettez à jour la carte avec les nouvelles données
-        // Implémentez cette fonction en fonction de votre bibliothèque de cartes
-        console.log(data);
-        updateMap(data);
-      });
-    </script>
-  </body>
 </html>

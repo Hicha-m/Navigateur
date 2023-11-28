@@ -145,8 +145,15 @@ def save(liste, csv, dir, export="", sep=";"):
 
 
 if __name__ == "__main__":
+    """
     formatter_temps_trains()
     formatter_villes_France()
-    formatter_villes_inter_trajets()
     formatter_gtfs_stop("stops.txt", "export_gtfs_voyages")
     formatter_gtfs_stop_temps("stop_times.txt", "export_gtfs_voyages")
+    """
+    # formatter_villes_inter_trajets()
+
+    # formatter_gtfs_stop("stops.txt", "export-intercites-gtfs-last")
+    # formatter_gtfs_stop_temps("stop_times.txt", "export-intercites-gtfs-last")
+    formatter_gtfs_stop("stops.txt", "export-ter-gtfs-last")
+    formatter_gtfs_stop_temps("stop_times.txt", "export-ter-gtfs-last")
