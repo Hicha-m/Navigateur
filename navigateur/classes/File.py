@@ -11,7 +11,7 @@ class File:
 
     def defiler(self):
         if not self.file_vide():
-            return self.file.pop()
+            return self.file.pop(0)
 
     def file_vide(self):
         return self.file == []
