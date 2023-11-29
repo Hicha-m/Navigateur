@@ -23,6 +23,9 @@ source .venv/bin/activate
 
 pip install -r requirements.txt
 
+# si soucis d'importation
+python setup.py install
+
 lancer le navigateur/main.py pour lancer le projet
 
 version web lancer le app/app.py
