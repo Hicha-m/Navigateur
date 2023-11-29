@@ -27,3 +27,7 @@ def marche_duree(lat1, lat2, lon1, lon2):
     distance_metres = calcul_distance_metres(lat1, lat2, lon1, lon2)
     marche_duree_minutes = int(distance_metres / MARCHE_VITESSE_M_MIN)
     return marche_duree_minutes
+
+
+def marche_distance(duree):
+    return duree * MARCHE_VITESSE_M_MIN
