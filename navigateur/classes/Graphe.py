@@ -1,5 +1,3 @@
-from random import randint
-
 from navigateur.classes.MatriceAdjacence import MatriceAdjacence
 from navigateur.fonctions.calcul_distance import marche_duree
 
