@@ -151,7 +151,6 @@ class Graphe:
                 p_w = g.avoir_poid(noeud1, noeud2)
                 if p_w < self.avoir_poid(noeud1, noeud2):
                     self.ajouter_arrete(noeud1, noeud2, p_w)
-                    self.ajouter_arrete(noeud2, noeud1, p_w)
 
     def copie(self):
         """
