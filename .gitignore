@@ -1,6 +1,11 @@
-__pycache__
-.pytest_cache
+__pycache__/
+.pytest_cache/
 .venv/
 build/
 navigateur.egg-info/
 dist/
+data/raw/
+data/cache/
+*.gtfs.zip
+*.pb
+.env
