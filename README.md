@@ -67,3 +67,29 @@ Lire [ROADMAP](docs/ROADMAP.md), [DECISIONS](docs/DECISIONS.md) et [PERFORMANCE]
 ## Historique
 
 Projet réalisé en groupe dans le cadre du portail René Descartes (2023). Voir l'historique Git pour les contributions individuelles.
+
+## Données SNCF actuelles : import séparé
+
+Le nouvel importeur est indépendant de l'ancien graphe de démonstration. Les anciennes données ne sont pas remplacées automatiquement.
+
+Télécharger explicitement le dernier GTFS SNCF et inspecter les services pour un jour donné :
+
+```bash
+python -m navigateur.gtfs --download --date 2026-10-24
+```
+
+Réutiliser ensuite la copie locale (sans télécharger à nouveau) :
+
+```bash
+python -m navigateur.gtfs --archive data/raw/sncf.zip --date 2026-10-25
+```
+
+Le téléchargement n'est pas déclenché au lancement du serveur. Les archives sont ignorées par Git. Le jour doit être compris dans la période réellement couverte par l'archive téléchargée.
+
+Le temps réel GTFS-RT est un composant expérimental isolé. Pour décoder son flux :
+
+```bash
+python -m pip install -r requirements-realtime.txt
+```
+
+**Important :** les mises à jour temps réel ne sont pas encore affichées sur la carte et les retards ne sont pas encore utilisés pour calculer des itinéraires. Voir [DATA_SOURCES](docs/DATA_SOURCES.md) et [ROADMAP](docs/ROADMAP.md).
