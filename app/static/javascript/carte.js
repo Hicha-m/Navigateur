@@ -2,6 +2,8 @@ const MARCHE_VITESSE_M_S = 1.1
 const MARCHE_VITESSE_M_MIN = MARCHE_VITESSE_M_S * 60
 
 var map = L.map("map").setView([46.6031, 1.8883], 6);
+const dataLayers = L.layerGroup().addTo(map);
+const selectedLayers = L.layerGroup().addTo(map);
 console.log("La carte a été créée avec succès.");
 // Ajoutez une couche de carte (par exemple, OpenStreetMap)
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -30,11 +32,8 @@ document.getElementById("bouton_villes").addEventListener("click", function (e) 
     get_localisation(e.target.innerText);
 });
 document.getElementById("bouton_clear").addEventListener("click", function (e) {
-    map.eachLayer(function (layer) {
-    if (layer instanceof L.Marker || layer instanceof L.Polyline || layer instanceof L.Circle) {
-        map.removeLayer(layer);
-    }
-    });
+    dataLayers.clearLayers();
+    selectedLayers.clearLayers();
 });
 
 function get_localisation(bouton) {
@@ -52,6 +51,7 @@ function get_localisation(bouton) {
         gares_ter: 3,
     };
 
+    dataLayers.clearLayers();
     fetch("/get_localisation", {
         method: "GET",
     })
@@ -93,7 +93,7 @@ function update_markers(localisations) {
         L.marker([latitude, longitude], {
         icon: markerIcon,
         })
-        .addTo(map)
+        .addTo(dataLayers)
             .bindPopup(nom);
         
         let temps_min = document.getElementById("bouton_number_duree").value
@@ -116,7 +116,7 @@ function update_connexions(localisations, connexions) {
             [latitude2, longitude2],
         ],
         { color: "blue", weight: 2 }
-        ).addTo(map);
+        ).addTo(dataLayers);
         // Ajouter un popup avec le temps sur la polyline
         polyline.bindPopup("Temps de trajet : " + temps + " minutes");
 
@@ -134,13 +134,12 @@ function make_circle(distance,lat,lon,couleur) {
 
 
 
-    var marker = L.marker([lat, lon]).addTo(map);
     var circle = L.circle([lat, lon], {
         color: "red",
         fillColor: couleur,
         fillOpacity: 0.2,
         radius: distance  // Specify the radius in meters
-    }).addTo(map);
+    }).addTo(dataLayers);
     
 }
 
