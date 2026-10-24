@@ -1,34 +1,69 @@
-# Navigateur
+# Navigateur — exploration de trajets ferroviaires
 
-## Introduction
+Projet pédagogique Python de graphes géographiques, avec représentation de réseaux de villes et de gares, recherche d'itinéraires et visualisation cartographique.
 
-Projet d'info du portail René Descartes.
-Le but est de depuis un point de départ, trouver le chemin le plus rapide pour atteindre l'arrivé.
+> **État du projet : reprise technique en cours.** Les données fournies sont historiques : elles ne représentent pas une offre de transport ni des horaires en temps réel. La recherche utilise des poids fixes, sans calcul de correspondances par horaire.
 
-![image](https://github.com/Hicha-m/Navigateur/assets/68863445/45b76116-7b39-46c5-b9a9-4c67a6d07d39)
+## Installation
 
-![image](https://github.com/Hicha-m/Navigateur/assets/68863445/96d72c71-b5bd-4256-bb48-83b2f458135d)
+Prérequis : Python 3.11 conseillé.
 
-## Utilisation
-
-```
+```bash
 git clone https://github.com/Hicha-m/Navigateur.git
-
-# créer un environnement virtuel python 
+cd Navigateur
 python -m venv .venv
-# sur linux
+# Linux / macOS
 source .venv/bin/activate
-# sur windows
-.venv/Scripts/activate
-
-pip install -r requirements.txt
-
-# si soucis d'importation
-python setup.py install
-
-lancer le navigateur/main.py pour lancer le projet
-
-version web lancer le app/app.py
-puis aller http://127.0.0.1:5000
+# Windows PowerShell : .venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+python -m pip install -e . --no-deps
 ```
-Si possible lancer le projet sur vscode pour éviter des soucies d'importation.
+
+Lancer l'application depuis la racine du dépôt :
+
+```bash
+python -m app.app
+```
+
+Ouvrir http://127.0.0.1:5000
+
+La démonstration des graphes en ligne de commande :
+
+```bash
+python -m navigateur.main
+```
+
+## Tests
+
+```bash
+python -m pytest -q
+```
+
+GitHub Actions effectue les tests à chaque commit de la branche de reprise et à chaque demande de fusion vers `main`.
+
+## Architecture
+
+- `navigateur/classes/` : structures de données et affichage Python/Matplotlib
+- `navigateur/fonctions/` : création des graphes, lecture des CSV, algorithmes, calculs de distance
+- `navigateur/tests/` : tests Python
+- `app/` : serveur Flask et interface Leaflet
+- `data/export/` : données CSV historiques fournies avec le projet
+- `docs/` : décisions techniques, plan de reprise et performances
+
+Les PDF `Sujet.pdf` et `Projet-navigateur.pdf` sont les documents historiques du projet.
+
+## Limites connues
+
+- La matrice d'adjacence reste dense et coûteuse pour le réseau TER.
+- Les CSV GTFS historiques peuvent contenir des durées cumulées et une perte de branches due à l'ancien export ; ils doivent être régénérés depuis les jeux GTFS source avant d'être considérés comme fiables.
+- Les données source utilisées par `format_csv.py` ne sont pas toutes présentes dans le dépôt.
+- L'interface web est une démonstration, sans requête de recherche d'itinéraire complète.
+- Le calcul des temps de marche repose sur la distance à vol d'oiseau, non sur le réseau piétonnier.
+
+## Suivi de reprise
+
+Lire [ROADMAP](docs/ROADMAP.md), [DECISIONS](docs/DECISIONS.md) et [PERFORMANCE](docs/PERFORMANCE.md). Les changements sont réalisés sur une branche dédiée avant revue.
+
+## Historique
+
+Projet réalisé en groupe dans le cadre du portail René Descartes (2023). Voir l'historique Git pour les contributions individuelles.
