@@ -16,7 +16,7 @@
 - [x] Ajouter une CLI de téléchargement explicite et inspection.
 - [ ] Tester avec une archive SNCF officielle réelle et documenter son schéma effectif.
 - [ ] Créer un index persistant / cache construit en dehors de la requête HTTP.
-- [ ] Développer la recherche d'itinéraires horaires et les transferts.
+- [x] Ajouter un premier moteur d'arrivée au plus tôt sur arcs GTFS datés, avec attentes et temps minimal de correspondance.\n- [x] Fournir une CLI JSON de recherche d'itinéraires par stop_id.\n- [ ] Faire évoluer le moteur pour les règles de transfert GTFS, les périodes de changement d'heure et de très grands volumes.
 
 ## Phase 4 — Temps réel SNCF
 - [x] Ajouter le décodeur GTFS-RT optionnel et validation de fraîcheur.

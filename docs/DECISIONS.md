@@ -26,3 +26,6 @@ Date : 2026-10-24. Un update GTFS-RT ne doit pas être appliqué si son `trip_id
 
 ## ADR-009 — Séparer acquisition et consultation
 Date : 2026-10-24. Télécharger explicitement le ZIP via une commande dédiée. Pas de téléchargement automatique pendant une requête HTTP. Le futur moteur utilisera des index construits en amont.
+
+## ADR-010 — Recherche horaire fondée sur les instants
+Date : 2026-10-24. Effectuer un balayage de connexions datées et conserver un état par gare et course. Les attentes et la durée minimale d'une correspondance sont prises en compte ; les services après 24h exigent de charger aussi la veille. La version initiale n'intègre pas les chemins piétons, les règles de transferts ni l'heure d'été/hiver sans ambiguïté. Voir `docs/ROUTING.md`.

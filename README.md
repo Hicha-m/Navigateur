@@ -93,3 +93,18 @@ python -m pip install -r requirements-realtime.txt
 ```
 
 **Important :** les mises à jour temps réel ne sont pas encore affichées sur la carte et les retards ne sont pas encore utilisés pour calculer des itinéraires. Voir [DATA_SOURCES](docs/DATA_SOURCES.md) et [ROADMAP](docs/ROADMAP.md).
+
+## Recherche d'itinéraires horaires
+
+Une première recherche théorique à date et heure utilise les `stop_id` de l'archive SNCF (voir `stops.txt`) :
+
+```bash
+python -m navigateur.gtfs.route_cli \
+  --archive data/raw/sncf.zip \
+  --from-stop "STOP_ID_ORIGINE" \
+  --to-stop "STOP_ID_DESTINATION" \
+  --departure 2026-10-24T09:30 \
+  --transfer-minutes 5
+```
+
+Le moteur produit un JSON avec les correspondances et les horaires. Il utilise les heures réelles du calendrier théorique, et non les durées cumulées des anciens CSV. Les résultats ne tiennent **pas encore** compte des retards et suppressions temps réel. Voir [ROUTING](docs/ROUTING.md) pour les hypothèses, les limites et les tests.
