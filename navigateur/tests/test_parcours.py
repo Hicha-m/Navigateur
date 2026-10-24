@@ -1,53 +1,16 @@
-""""ce programme contient les tests des fonctions contenus dans le fichier "parcours.py""" ""
-
+"""Tests du calcul des plus courts chemins."""
 from navigateur.classes.Graphe import Graphe
+from navigateur.classes.Ville import Ville
+from navigateur.fonctions.parcours import parcours_Floyd_Warshall
 
 
-from navigateur.fonctions.parcours import parcours_en_largeur, trouver_chemin
-
-
-def test_parcours_en_largeur():
-    g = Graphe(5)
-    g.nouveau_graphe()
-    g.ajouter_arc(0, 1)
-    g.ajouter_arc(0, 2)
-    g.ajouter_arc(2, 3)
-    g.ajouter_arc(2, 4)
-    g.ajouter_arc(3, 4)
-    print(g)
-    h = parcours_en_largeur(g, 0)
-    print(h)
-
-    assert h.tableaux == [
-        [0, 1, 1, 0, 0],
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 1, 1],
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0],
-    ]
-
-    g.nouveau_graphe()
-    g.ajouter_arc(0, 1)
-    g.ajouter_arc(0, 2)
-    g.ajouter_arc(0, 3)
-    g.ajouter_arc(1, 3)
-    g.ajouter_arc(2, 1)
-    g.ajouter_arc(2, 3)
-    g.ajouter_arc(2, 4)
-    g.ajouter_arc(3, 4)
-    g.ajouter_arc(4, 0)
-    print(g)
-    h = parcours_en_largeur(g, 0)
-    print(h)
-
-    assert h.tableaux == [
-        [0, 1, 1, 1, 0],
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 1],
-        [0, 0, 0, 0, 0],
-    ]
-
-
-def test_trouver_chemin():
-    pass
+def test_floyd_warshall_avec_etape():
+    g = Graphe()
+    a, b, c = [Ville(nom, (0, i)) for i, nom in enumerate(("a", "b", "c"))]
+    for n in (a, b, c):
+        g.ajouter_noeud(n)
+    g.ajouter_arrete(a, b, 3)
+    g.ajouter_arrete(b, c, 4)
+    g.ajouter_arrete(a, c, 12)
+    distances, _ = parcours_Floyd_Warshall(g)
+    assert distances.avoir_arc(g.index_noeud(a), g.index_noeud(c)) == 7
