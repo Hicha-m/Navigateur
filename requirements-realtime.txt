@@ -1,0 +1,2 @@
+# Dépendance optionnelle pour décoder le flux protobuf GTFS-RT.
+gtfs-realtime-bindings>=1.0,<2

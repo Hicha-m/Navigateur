@@ -8,14 +8,13 @@ def parcours_en_largeur(M, s):
     et seulement les arcs parcourus en explorant le graphe à partir du sommet s."""
     n = M.taille_graphe()
     couleur = [-1] * n
-    for i in range(n - 1):
+    for i in range(n):
         couleur[i] = "blanc"
     H = MatriceAdjacence(0, n)
     H.nouveau_graphe()
     F = File()
     couleur[s] = "rouge"
     F.enfiler(s)
-    print(F.file)
     while not F.file_vide():
         i = F.defiler()
         for j in range(n ):
@@ -81,63 +80,66 @@ def avoir_chemin_Floyd_Warshall(
     """
     Retourne une liste du chemin du noeud A à un noeud B
     """
-    chemin = [nom2]
-    noeud = nom2
-    while noeud != nom1:
-        noeud_index = G.index_nom(noeud)
-        noeud = list(G.noeuds)[
-            predecesseur_matrice.avoir_arc(G.index_nom(nom1), noeud_index)
-        ]
-        chemin.append(noeud)
-    chemin.reverse()
-    print(chemin)
-    return chemin
-
-
-def Min(Dis, T):
-    """Renvoie un sommet non traité (qui n’est pas dans T) dont la valeur
-    dans Dis est minimale"""
-    m = DEFAULT
-    for sommet in Dis:
-        if sommet not in T and Dis[sommet] <= m:
-            m = Dis[sommet]
-            smin = sommet
-    return smin
+    source = G.index_nom(nom1)
+    destination = G.index_nom(nom2)
+    if source is None or destination is None:
+        raise ValueError("Sommet inconnu")
+    chemin = [G.avoir_noeud_indice(destination)]
+    courant = destination
+    for _ in range(G.avoir_taille()):
+        if courant == source:
+            chemin.reverse()
+            return chemin
+        parent = predecesseur_matrice.avoir_arc(source, courant)
+        if parent == DEFAULT or not isinstance(parent, int):
+            return []
+        courant = parent
+        chemin.append(G.avoir_noeud_indice(courant))
+    raise ValueError("Cycle détecté dans la matrice des prédécesseurs")
 
 
 def Dijkstra(G, source):
-    """Algorithme de Dijkstra: trouve le plus court chemin de source à
-    n’importe quel sommet"""
-    T = {}  # dictionnaire dont les clés sont les sommets traités
-    Dis = {sommet: DEFAULT for sommet in G.avoir_noeuds()}
+    """Plus courts chemins depuis source pour des poids non négatifs."""
+    import heapq
 
-    Dis[source] = 0
-    P = {source: source}
-    for i in range(G.avoir_taille()):
-        smin = Min(Dis, T)
-        T[smin] = smin
-        for voisin in G.avoir_adjacent(smin):
-            d = Dis[smin] + G.avoir_arrete(
-                smin, voisin
-            )  # distance entre source et voisin
-            # si on passe smin
-            if Dis[voisin] > d:
-                Dis[voisin] = d
-                P[voisin] = smin
-    return Dis, P
+    if source not in G.noeudAindice:
+        raise ValueError("Le sommet source est absent du graphe")
+
+    dist = {node: float("inf") for node in G.avoir_noeuds()}
+    previous = {source: source}
+    dist[source] = 0
+    queue = [(0, 0, source)]
+    counter = 0
+
+    while queue:
+        cost, _, current = heapq.heappop(queue)
+        if cost != dist[current]:
+            continue
+        for neighbor in G.avoir_adjacent(current):
+            weight = G.avoir_poid(current, neighbor)
+            if weight < 0:
+                raise ValueError("Dijkstra exige des poids non négatifs")
+            candidate = cost + weight
+            if candidate < dist[neighbor]:
+                dist[neighbor] = candidate
+                previous[neighbor] = current
+                counter += 1
+                heapq.heappush(queue, (candidate, counter, neighbor))
+    return dist, previous
 
 
 def Itineraire(G, source, but):
-    """Renvoie l'itinéraire dans le graphe du plus court chemin entre source
-    et but"""
-    Dis, P = Dijkstra(G, source)  # On prend la version la plus rapide
-    buti = but
-    Chemin = [but]  # Liste des sommets à parcourir
-    while but != source:
-        but = P[but]
-        Chemin.append(but)
-    Chemin.reverse()  # On obtient la liste à l’envers donc on la renverse
-    return Chemin, Dis[buti]  # On renvoie le chemin et le temps de parcours
+    """Retourne (chemin, poids total), ou ([], inf) sans connexion."""
+    if but not in G.noeudAindice:
+        raise ValueError("Le sommet destination est absent du graphe")
+    distances, previous = Dijkstra(G, source)
+    if distances[but] == float("inf"):
+        return [], float("inf")
+    path = [but]
+    while path[-1] != source:
+        path.append(previous[path[-1]])
+    path.reverse()
+    return path, distances[but]
 
 
 if __name__ == "__main__":

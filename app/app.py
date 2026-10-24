@@ -31,10 +31,14 @@ def carte():
 
 @app.route("/update_marker", methods=["POST"])
 def update_marker():
-    lat = float(request.form["lat"]) + 1
-    lon = float(request.form["lon"]) + 1
+    try:
+        lat = float(request.form["lat"])
+        lon = float(request.form["lon"])
+    except (KeyError, ValueError):
+        return jsonify({"error": "Coordonnées invalides"}), 400
+    if not (-90 <= lat <= 90 and -180 <= lon <= 180):
+        return jsonify({"error": "Coordonnées hors limites"}), 400
     latest_coordinates = {"lat": lat, "lon": lon}
-    print(f"New Marker: Latitude={lat}, Longitude={lon}")
 
     return jsonify(latest_coordinates)
 
@@ -56,5 +60,5 @@ def contact():
 
 if __name__ == "__main__":
     # Exécutez le serveur Flask
-    app.run(debug=True)
+    app.run(debug=False)
     # http://127.0.0.1:5000

@@ -18,6 +18,7 @@ class Graphe:
         self.matrice = MatriceAdjacence(default)
         self.noeudAindice = {}  # Noeud : indice
         self.strAindice = {}  # str : indice
+        self._voisins = {}  # indices des voisins : parcours sans balayage matriciel
 
     def index_noeud(self, noeud) -> int:
         """
@@ -42,6 +43,7 @@ class Graphe:
         self.noeuds.append(noeud)
         self.noeudAindice[noeud] = n
         self.strAindice[noeud.nom] = n
+        self._voisins[noeud] = set()
         self.matrice.etendre()
         self.ajouter_arrete(noeud, noeud, 0)  # par def de la position
 
@@ -52,6 +54,7 @@ class Graphe:
         index_noeud1, index_noeud2 = self.index_noeud(noeud1), self.index_noeud(noeud2)
         if type(index_noeud1) is int and type(index_noeud2) is int:
             self.matrice.ajouter_arc(index_noeud1, index_noeud2, poid)
+            self._voisins[noeud1].add(noeud2)
             self.arretes.append([noeud1, noeud2])
 
     def avoir_noeud_nom(self, nom: str):
@@ -106,11 +109,7 @@ class Graphe:
         """
         Retourne la liste des noeuds adjacents (voisins) au noeud
         """
-        return [
-            self.noeuds[i]
-            for i in range(self.matrice.taille_graphe())
-            if self.matrice.matrice[self.index_noeud(noeud)][i] != DEFAULT
-        ]
+        return self._voisins.get(noeud, set())
 
     def avoir_poid(self, noeud1, noeud2) -> int:
         """
@@ -161,7 +160,9 @@ class Graphe:
             g.ajouter_noeud(noeud)
         for noeud1 in self.avoir_noeuds():
             for noeud2 in self.avoir_noeuds():
-                g.ajouter_arrete(noeud1, noeud2, self.avoir_poid(noeud1, noeud2))
+                poid = self.avoir_poid(noeud1, noeud2)
+                if poid != self.matrice.default:
+                    g.ajouter_arrete(noeud1, noeud2, poid)
         return g
 
     def __str__(self):

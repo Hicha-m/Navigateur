@@ -96,7 +96,7 @@ def formatter_gtfs_stop_temps(dir, export):
             temps_min = int(
                 int(depart_temps[0]) * 60
                 + int(depart_temps[1])
-                + int(depart_temps[0]) / 60
+                + int(depart_temps[2]) / 60
             )
             stop_id = str(row["stop_id"])
             index = str(row["stop_sequence"])
@@ -108,21 +108,25 @@ def formatter_gtfs_stop_temps(dir, export):
     for voyage_id, dic in stop_temps_voyage_id.items():
         stops = []
         temps = []
-        for i in range(len(dic)):
-            i = str(i)
+        for i in sorted(dic, key=int):
             stops.append(dic[i][1])
-            temps.append(dic[i][0] - dic["0"][0])
+            temps.append(dic[i][0])
         stop_temps_stop_id.setdefault(tuple(stops), temps)
 
     connexions = {}
     for tuples, temps in stop_temps_stop_id.items():
         for i in range(len(tuples) - 1):
-            connexions.setdefault(tuples[i], [tuples[i + 1], temps[i + 1]])
+            debut, fin = tuples[i], tuples[i + 1]
+            duree = temps[i + 1] - temps[i]
+            if duree < 0:
+                continue
+            cle = (debut, fin)
+            connexions[cle] = min(connexions.get(cle, duree), duree)
 
     connexions_liste = []
 
-    for stop, stop_Et_temps in connexions.items():
-        connexions_liste.append([stop, stop_Et_temps[0], stop_Et_temps[1]])
+    for (debut, fin), duree in sorted(connexions.items()):
+        connexions_liste.append([debut, fin, duree])
 
     save(connexions_liste, "stop1;stop2;temps", "stops_temps.csv", export)
 
