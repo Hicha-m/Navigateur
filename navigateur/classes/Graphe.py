@@ -160,7 +160,9 @@ class Graphe:
             g.ajouter_noeud(noeud)
         for noeud1 in self.avoir_noeuds():
             for noeud2 in self.avoir_noeuds():
-                g.ajouter_arrete(noeud1, noeud2, self.avoir_poid(noeud1, noeud2))
+                poid = self.avoir_poid(noeud1, noeud2)
+                if poid != self.matrice.default:
+                    g.ajouter_arrete(noeud1, noeud2, poid)
         return g
 
     def __str__(self):
