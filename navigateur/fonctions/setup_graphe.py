@@ -76,8 +76,8 @@ def avoir_connexions(
             temps,
         )
         g.ajouter_arrete(
-            convert_class(noeud1_str, *args_convert_class),
             convert_class(noeud2_str, *args_convert_class),
+            convert_class(noeud1_str, *args_convert_class),
             temps,
         )
 
