@@ -15,7 +15,7 @@ def parcours_en_largeur(M, s):
     F = File()
     couleur[s] = "rouge"
     F.enfiler(s)
-     while not F.file_vide():
+    while not F.file_vide():
         i = F.defiler()
         for j in range(n ):
             if M.existe_arc(i, j) == True and couleur[j] == "blanc":
