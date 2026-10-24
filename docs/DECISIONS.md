@@ -16,4 +16,13 @@ Date : 2026-10-24. Corriger la logique du générateur GTFS mais **ne pas** modi
 Date : 2026-10-24. Un itinéraire vers un nœud existant mais inatteignable renvoie `([], float("inf"))`. Les identifiants de nœuds absents produisent `ValueError`.
 
 ## ADR-006 — Licence du code de groupe
-Date : 2026-10-24. Ne pas ajouter de licence sans accord des contributeurs. Le dépôt public n'implique pas automatiquement un droit de réutilisation libre.
+Date : 2026-10-24. Ne pas ajouter de licence sans accord des contributeurs.
+
+## ADR-007 — GTFS statique comme référence horaire
+Date : 2026-10-24. Lire le ZIP officiel avec la bibliothèque standard, préserver `trip_id`, `service_id`, `stop_id`, les temps et le jour de service. Ne pas projeter ces données dans l'ancienne matrice pondérée sans composant de routage temporel.
+
+## ADR-008 — Temps réel sans association heuristique
+Date : 2026-10-24. Un update GTFS-RT ne doit pas être appliqué si son `trip_id` ne correspond pas exactement à la source théorique. En absence de mapping fiable, afficher uniquement le théorique ; seules les annulations strictement appariées sont filtrées. Exiger la fraîcheur du flux au moment de toute utilisation réelle.
+
+## ADR-009 — Séparer acquisition et consultation
+Date : 2026-10-24. Télécharger explicitement le ZIP via une commande dédiée. Pas de téléchargement automatique pendant une requête HTTP. Le futur moteur utilisera des index construits en amont.

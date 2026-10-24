@@ -1,13 +1,17 @@
-# Changelog de la reprise
+# Changelog
 
-## 2026-10-24 — Branche refactor/project-recovery
+## 2026-10-24 — Import de données SNCF
+- **feat(gtfs)** : parseur statique sensible au calendrier, aux exceptions et aux horaires >24h.
+- **test(gtfs)** : fixtures ZIP de services et de départs orientés ; test de la CLI.
+- **feat(gtfs-rt)** : décodeur optionnel GTFS-RT, validation de fraîcheur, filtration stricte des annulations.
+- **docs(data)** : registre des sources et règles d'identification.
+- **cli** : inspection d'archives locales et téléchargement explicite.
 
-- **test** : réalignement des tests historiques avec les interfaces actuelles et ajout de GitHub Actions.
-- **build** : retrait de la dépendance du projet à lui-même dans `setup.py`.
-- **fix** : correction des parcours de graphes et des chemins inaccessibles.
-- **fix** : correction du générateur des connexions GTFS (durées par portion et conservation des destinations).
-- **refactor** : cache des voisins en complément de la matrice dense.
-- **fix** : validation des coordonnées web et réduction de la duplication des couches de carte.
-- **docs** : documentation des limites, décisions et tâches restantes.
+## 2026-10-24 — Reprise technique du projet historique
+- **test** : tests historiques remis à niveau et GitHub Actions.
+- **build** : correction du packaging.
+- **fix** : graphes, parcours, générateur GTFS historique, endpoints et carte.
+- **refactor** : cache des voisins.
+- **docs** : README et décisions de reprise.
 
-Note : ce changelog décrit le travail engagé sur la branche. Les états des tests et l'intégration à `main` doivent être vérifiés sur GitHub avant fusion.
+Ne pas présenter ce changelog comme une validation d'itinéraires réels : le calcul temporel et l'intégration des retards ne sont pas encore disponibles.

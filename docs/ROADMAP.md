@@ -1,33 +1,36 @@
 # Feuille de route et critères de validation
 
-## Phase 1 — Stabilisation
-- [x] Corriger le packaging auto-référent.
-- [x] Restaurer les tests des objets graphes et des parcours.
-- [x] Ajouter GitHub Actions.
-- [ ] Valider la CI après toutes les modifications.
+## Phase 1 — Stabilisation du projet historique
+- [x] Corriger le packaging.
+- [x] Restaurer les tests et mettre en place la CI.
 
-## Phase 2 — Corrections fonctionnelles
-- [x] Corriger la création des arcs dans le sens retour pour le modèle existant.
-- [x] Corriger le parcours en largeur et Dijkstra.
-- [x] Éviter la reconstruction infinie des chemins inaccessibles.
-- [x] Corriger le code d'export GTFS : séquences d'arrêts, secondes, poids des arcs, embranchements.
-- [ ] Régénérer et vérifier les CSV historiques depuis des sources GTFS complètes.
-- [ ] Distinguer les services réellement directionnels des liaisons supposées bidirectionnelles.
+## Phase 2 — Correction des algorithmes historiques
+- [x] Corriger les arcs du modèle historique et la reconstruction des chemins.
+- [x] Corriger le code de génération des poids des anciens CSV.
+- [ ] Vérifier/régénérer les anciens exports si des sources historiques sont disponibles.
 
-## Phase 3 — Modernisation
-- [x] Ajouter un cache des voisins pour réduire les balayages de la matrice durant Dijkstra.
-- [x] Valider les coordonnées de l'API de marqueur et supprimer le décalage artificiel.
-- [x] Éviter l'empilement des couches de données lors du rechargement des cartes.
-- [ ] Remplacer la matrice dense après benchmarks et tests de migration.
-- [ ] Refaire la gestion des clics et cercles dans Leaflet avec des groupes de couches séparés.
-- [ ] Mettre à jour et auditer les versions des dépendances.
+## Phase 3 — Import moderne de données SNCF (GTFS)
+- [x] Ajouter un parseur GTFS statique indépendant des anciennes classes.
+- [x] Respecter calendrier, exceptions, stop_sequence, arcs orientés, horaires après minuit.
+- [x] Ajouter tests sur archive ZIP miniature entièrement reproductible.
+- [x] Ajouter une CLI de téléchargement explicite et inspection.
+- [ ] Tester avec une archive SNCF officielle réelle et documenter son schéma effectif.
+- [ ] Créer un index persistant / cache construit en dehors de la requête HTTP.
+- [ ] Développer la recherche d'itinéraires horaires et les transferts.
 
-## Phase 4 — Documentation
-- [x] Refaire le README et documenter les limitations.
-- [x] Documenter le plan de reprise et les décisions.
-- [x] Consigner la stratégie de performances.
-- [ ] Ajouter des benchmarks quantifiés et des captures actualisées.
-- [ ] Examiner la licence avec les autres contributeurs du projet.
+## Phase 4 — Temps réel SNCF
+- [x] Ajouter le décodeur GTFS-RT optionnel et validation de fraîcheur.
+- [x] Garantir que les identifiants non appariés n'altèrent pas les horaires théoriques.
+- [x] Filtrer les annulations identifiées exactement.
+- [ ] Ajouter le mapping vérifiable entre les identifiants GTFS / GTFS-RT, ainsi que les règles d'annulation et de changement d'arrêt.
+- [ ] Propager les retards par arrêt et gérer l'information incomplète.
+- [ ] Intégrer les alertes de service.
+- [ ] Tester en direct les données et la couverture régionale.
 
-## Règles de contribution
-Toute modification doit rester isolée dans un commit descriptif, passer les tests unitaires et justifier les changements de contrat dans un test de non-régression. Ne pas fusionner une CI rouge. Ne pas publier des résultats de trajets réels à partir des CSV historiques non vérifiés.
+## Phase 5 — Application et qualité
+- [ ] Remplacer les opérations O(V²) et O(V³) de la matrice dense pour les grands graphes.
+- [ ] Connecter le moteur horaire à une API et à une interface.
+- [ ] Benchmarks, couverture d'intégration et tests de navigateur.
+- [ ] Dépendances, licence et documentation finale.
+
+Tout ajout doit être accompagné de tests et d'une décision documentée. Ne pas fusionner les changements sans validation de la CI.
